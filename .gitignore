@@ -9,3 +9,5 @@
 node_modules/
 .DS_Store
 Thumbs.db
+/api/config.local.php
+/.local-tests/

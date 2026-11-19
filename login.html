@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | HAL Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        hand: ['Caveat', 'cursive']
+                    },
+                    colors: {
+                        hal: {
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15'
+                        }
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'shine': 'shine 2s infinite'
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        shine: {
+                            '0%': { backgroundPosition: '200% center' },
+                            '100%': { backgroundPosition: '-200% center' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; overflow-x: hidden; }
+
+        /* Floating animations for hero items */
+        .float-1 { animation: float 6s ease-in-out infinite; }
+        .float-2 { animation: float 5s ease-in-out infinite reverse; }
+        .float-3 { animation: float 7s ease-in-out infinite 1s; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, rgba(255,255,255,0) 100%);
+            position: relative;
+        }
+
+        /* Glassmorphism widget */
+        .glass-widget {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.1);
+        }
+
+        /* Glowing button hover */
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Concentric circles */
+        .circle-outer {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 2px solid rgba(6,182,212,0.1);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+        .step-card:hover .circle-outer { border-color: rgba(6,182,212,0.5); transform: scale(1.05); }
+        .circle-mid {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background-color: rgba(6,182,212,0.15);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .circle-inner {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background-color: rgba(6,182,212,0.3);
+            display: flex; align-items: center; justify-content: center;
+            color: #0891B2;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover .circle-inner { background-color: #06B6D4; color: white; transform: rotate(10deg) scale(1.1); }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(6,182,212,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(6,182,212,0.05) 1px, transparent 1px);
+        }
+
+        .hand-arrow {
+            width: 40px; height: 40px;
+            border-left: 2px solid #0891B2;
+            border-bottom: 2px solid #0891B2;
+            border-bottom-left-radius: 20px;
+            position: absolute;
+        }
+        .hand-arrow::after {
+            content: ''; position: absolute; bottom: -6px; right: -2px; width: 10px; height: 10px; border-top: 2px solid #0891B2; border-right: 2px solid #0891B2; transform: rotate(45deg);
+        }
+
+        /* Marquee wrapper hide scrollbar */
+        .marquee-wrapper { overflow: hidden; white-space: nowrap; position: relative; }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
+    </style>
+    <link rel="stylesheet" href="responsive.css?v=3">
+    <script src="site.js?v=3" defer></script>
+    <link rel="stylesheet" href="account.css?v=1">
+    <script src="account.js?v=1" defer></script>
+</head>
+<body class="page-login antialiased text-slate-800 pt-20">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <!-- Header -->
+    <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
+                    <div>
+                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
+                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
+                    </div>
+                </div>
+            </a>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
+            <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
+                <a href="index.html" class="text-hal-900 font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hal-500">Home</a>
+                <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+                <a href="rate-card.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Scrap Rates</a>
+                <a href="blog.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Blog</a>
+                <a href="contact.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
+
+                <!-- Ecosystem Dropdown -->
+                <!-- Ecosystem navigation temporarily disabled.
+<div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
+                        <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
+                        <a href="admin.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div><div><p class="font-bold text-slate-900 text-sm">Admin Control Center</p><p class="text-xs text-slate-500">Platform Oversight</p></div></a>
+                        <a href="executive.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-hal-100 text-hal-600 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt"></i></div><div><p class="font-bold text-slate-900 text-sm">Executive App</p><p class="text-xs text-slate-500">Driver/Collector View</p></div></a>
+                        <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
+                    </div>
+                </div>
+-->
+                <a href="login.html" data-account-link class="account-nav-link" aria-label="Log in or create an account"><i class="fas fa-user-circle" aria-hidden="true"></i><span data-account-label>Login</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
+            <a href="index.html" class="hover:text-hal-500 transition">Home</a>
+            <a href="rate-card.html" class="hover:text-hal-500 transition">Scrap Rates</a>
+            <a href="about.html" class="hover:text-hal-500 transition">About Us</a>
+            <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
+            <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
+            <a href="booking.html" class="text-hal-600">Book a pickup</a>
+            <a href="login.html" data-account-link class="account-nav-link" aria-label="Log in or create an account"><i class="fas fa-user-circle" aria-hidden="true"></i><span data-account-label>Login</span></a>
+        </nav>
+    </div>
+    <main id="main-content" tabindex="-1" class="account-page">
+        <div class="account-layout">
+            <section class="account-intro">
+                <span class="account-eyebrow">Your HAL Solution account</span>
+                <h1>A little less effort.<br>A little more circular.</h1>
+                <p>Sign in to keep your contact and pickup details in one place. Ready whenever you are.</p>
+                <ul class="account-benefits">
+                    <li><i class="fas fa-user" aria-hidden="true"></i> Your own profile</li>
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Save your pickup address</li>
+                    <li><i class="fas fa-pen" aria-hidden="true"></i> Update your details anytime</li>
+                </ul>
+            </section>
+            <section class="account-card" aria-label="Account sign in">
+                <div class="account-tabs" role="group" aria-label="Account options">
+                    <button type="button" data-auth-mode="login" aria-pressed="true" aria-controls="login-form">Sign in</button>
+                    <button type="button" data-auth-mode="register" aria-pressed="false" aria-controls="register-form">Create account</button>
+                </div>
+                <p id="account-status" class="account-status" role="status" aria-live="polite">Connecting to your account?</p>
+                <form id="login-form" data-auth-form="login" class="account-form">
+                    <div><label for="login-email">Email address</label><input class="account-input" id="login-email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com" required></div>
+                    <div><label for="login-password">Password</label><div class="account-password"><input class="account-input" id="login-password" name="password" type="password" autocomplete="current-password" minlength="10" maxlength="72" required><button type="button" data-show-password="login-password" aria-label="Show or hide password" aria-pressed="false">Show</button></div></div>
+                    <button class="account-primary" type="submit" disabled>Sign in</button>
+                </form>
+                <form id="register-form" data-auth-form="register" class="account-form" hidden>
+                    <div><label for="register-name">Full name</label><input class="account-input" id="register-name" name="name" autocomplete="name" maxlength="150" required></div>
+                    <div><label for="register-email">Email address</label><input class="account-input" id="register-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required></div>
+                    <div><label for="register-password">Create a password</label><div class="account-password"><input class="account-input" id="register-password" name="password" type="password" autocomplete="new-password" minlength="10" maxlength="72" aria-describedby="password-help" required><button type="button" data-show-password="register-password" aria-label="Show or hide password" aria-pressed="false">Show</button></div><small id="password-help">Use at least 10 characters. Choose a password you don't use elsewhere.</small></div>
+                    <button class="account-primary" type="submit" disabled>Create account</button>
+                </form>
+                <p class="account-note">By continuing, you agree to our <a href="terms.html">Terms</a>.<br>Need help signing in? <a href="contact.html">Contact us</a>.</p>
+            </section>
+        </div>
+    </main>
+    <footer class="py-8 px-4 text-center text-sm text-slate-500 border-t border-slate-200 bg-white">HAL Solution &middot; <a href="contact.html" class="text-hal-700">Contact us</a> &middot; <a href="terms.html" class="text-hal-700">Terms</a></footer>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

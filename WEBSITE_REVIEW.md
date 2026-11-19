@@ -1,5 +1,7 @@
 # HAL Solution website review
 
+Account update: email/password sign-in and a persistent PHP/MySQL customer profile have now been added; see `ACCOUNT_SETUP.md`. The Hostinger database must still be configured before real accounts can be saved. Ecosystem navigation is commented out. The original review below describes the preceding frontend-only version; its customer-login limitation is superseded by this update, while OTP, admin authorization, and booking limitations remain.
+
 ## Changes made
 
 - Shared responsive rules now cover all 12 pages. Branding and page content are retained.

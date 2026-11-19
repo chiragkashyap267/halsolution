@@ -51,8 +51,10 @@
             transform: scale(1.05);
         }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=2">
-    <script src="site.js?v=2" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=3">
+    <script src="site.js?v=3" defer></script>
+    <link rel="stylesheet" href="account.css?v=1">
+    <script src="account.js?v=1" defer></script>
 </head>
 <body class="page-contact has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -77,6 +79,7 @@
                 </div>
             </a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
                 <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
                 <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
@@ -86,7 +89,8 @@
                 <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
 
                 <!-- Ecosystem Dropdown -->
-                <div class="relative group">
+                <!-- Ecosystem navigation temporarily disabled.
+<div class="relative group">
                     <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
                     <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
                         <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
@@ -95,6 +99,8 @@
                         <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
                     </div>
                 </div>
+-->
+                <a href="login.html" data-account-link class="account-nav-link" aria-label="Log in or create an account"><i class="fas fa-user-circle" aria-hidden="true"></i><span data-account-label>Login</span></a>
             </nav>
         </div>
     </header>
@@ -112,13 +118,16 @@
             <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
             <a href="contact.html" class="text-hal-500 font-black">Contact</a>
             <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
-            <div class="border-t border-slate-200 pt-4 mt-2">
+            <!-- Ecosystem navigation temporarily disabled.
+<div class="border-t border-slate-200 pt-4 mt-2">
                 <p class="text-sm text-slate-400 uppercase tracking-widest mb-4">Ecosystem</p>
                 <a href="booking.html" class="block py-2 hover:text-hal-500 transition text-base">Booking Engine</a>
                 <a href="admin.html" class="block py-2 hover:text-hal-500 transition text-base">Admin Control Center</a>
                 <a href="executive.html" class="block py-2 hover:text-hal-500 transition text-base">Executive App</a>
                 <a href="enterprise.html" class="block py-2 hover:text-hal-500 transition text-base">Enterprise Portal</a>
             </div>
+-->
+            <a href="login.html" data-account-link class="account-nav-link" aria-label="Log in or create an account"><i class="fas fa-user-circle" aria-hidden="true"></i><span data-account-label>Login</span></a>
         </nav>
     </div>
 
