@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive App - Hal Solution</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-slate-800 min-h-screen flex items-center justify-center p-4">
+    
+    <!-- Phone Mockup Container -->
+    <div class="w-full max-w-[400px] h-[800px] bg-white rounded-[3rem] shadow-2xl relative overflow-hidden border-[12px] border-slate-900 flex flex-col">
+        <!-- Dynamic Island / Notch Placeholder -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-slate-900 rounded-b-3xl z-50"></div>
+        
+        <!-- App Header -->
+        <header class="bg-hal-600 text-white pt-12 pb-4 px-6 shadow-md z-40 relative">
+            <div class="flex justify-between items-center mb-4">
+                <button class="text-xl"><i class="fas fa-bars"></i></button>
+                <h1 class="font-black text-lg">Pickup Executive App</h1>
+                <button class="relative text-xl"><i class="fas fa-bell"></i><span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span></button>
+            </div>
+            <!-- Toggle Duty -->
+            <div class="flex justify-between items-center bg-white/20 p-3 rounded-xl border border-white/30 backdrop-blur-sm">
+                <div class="flex items-center gap-3">
+                    <img src="images/34727dc01089.jpg" class="w-10 h-10 rounded-full border-2 border-white">
+                    <div>
+                        <p class="font-bold text-sm leading-tight">Ramesh Kumar</p>
+                        <p class="text-xs text-hal-100"><i class="fas fa-circle text-emerald-300 text-[10px]"></i> On Duty</p>
+                    </div>
+                </div>
+                <div class="w-12 h-6 bg-emerald-400 rounded-full relative shadow-inner">
+                    <div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Map Area -->
+        <div class="flex-1 relative bg-slate-200">
+            <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="w-full h-full object-cover opacity-60" alt="Map">
+            
+            <!-- Route Line Simulation -->
+            <svg class="absolute inset-0 w-full h-full z-10" pointer-events="none">
+                <path d="M 100 200 L 150 180 L 200 250 L 300 220" fill="none" stroke="#06B6D4" stroke-width="6" stroke-dasharray="8 8"></path>
+                <circle cx="100" cy="200" r="8" fill="#0A66C2" stroke="#fff" stroke-width="3"></circle>
+                <circle cx="300" cy="220" r="10" fill="#EF4444" stroke="#fff" stroke-width="3"></circle>
+            </svg>
+            
+            <!-- Active Order Floating Card -->
+            <div class="absolute bottom-6 left-4 right-4 bg-white rounded-2xl shadow-xl border border-slate-100 p-5 z-20">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="bg-hal-50 text-hal-600 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border border-hal-100">Active Order</span>
+                    <span class="text-slate-400 font-bold text-sm">#200631021</span>
+                </div>
+                <h3 class="font-black text-slate-900 text-lg leading-tight mb-1">Amit Sharma</h3>
+                <p class="text-slate-500 text-sm mb-4"><i class="fas fa-map-marker-alt text-hal-500 w-4"></i> Sector 62, Noida (2.4 km away)</p>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="bg-hal-50 border border-hal-200 text-hal-700 py-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 hover:bg-hal-100 transition">
+                        <i class="fas fa-qrcode text-xl"></i> QR / OTP Auth
+                    </button>
+                    <button class="bg-hal-600 text-white py-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 shadow-md hover:bg-hal-700 transition">
+                        <i class="fas fa-weight text-xl"></i> Enter Weight
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Recenter Map Button -->
+            <button class="absolute top-4 right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-700 text-xl z-20 hover:text-hal-600">
+                <i class="fas fa-location-arrow"></i>
+            </button>
+        </div>
+        
+        <!-- Bottom Nav -->
+        <nav class="bg-white border-t border-slate-100 flex justify-around p-4 pb-8 shrink-0 z-40">
+            <button class="flex flex-col items-center text-hal-600"><i class="fas fa-map-marked-alt text-xl mb-1"></i><span class="text-[10px] font-bold">Pickups</span></button>
+            <button class="flex flex-col items-center text-slate-400 hover:text-hal-600 transition"><i class="fas fa-history text-xl mb-1"></i><span class="text-[10px] font-bold">History</span></button>
+            <button class="flex flex-col items-center text-slate-400 hover:text-hal-600 transition"><i class="fas fa-wallet text-xl mb-1"></i><span class="text-[10px] font-bold">Earnings</span></button>
+            <button class="flex flex-col items-center text-slate-400 hover:text-hal-600 transition"><i class="fas fa-user text-xl mb-1"></i><span class="text-[10px] font-bold">Profile</span></button>
+        </nav>
+    </div>
+
+    <!-- Instruction Panel next to phone -->
+    <div class="hidden lg:block ml-16 text-white max-w-sm">
+        <h2 class="text-3xl font-black mb-4 text-hal-400">Decentralized Workforce App</h2>
+        <p class="text-slate-300 mb-6 font-medium">This is what the pickup executives see in the field. The app features:</p>
+        <ul class="space-y-4">
+            <li class="flex gap-3"><i class="fas fa-check-circle text-hal-500 mt-1 text-xl"></i> <div><strong>Assigned Navigation</strong><br><span class="text-sm text-slate-400">Routing the collector efficiently.</span></div></li>
+            <li class="flex gap-3"><i class="fas fa-check-circle text-hal-500 mt-1 text-xl"></i> <div><strong>QR / OTP Verification</strong><br><span class="text-sm text-slate-400">Ensuring secure transactions at doorstep.</span></div></li>
+            <li class="flex gap-3"><i class="fas fa-check-circle text-hal-500 mt-1 text-xl"></i> <div><strong>Digital Weighing Entry</strong><br><span class="text-sm text-slate-400">Real-time weight capture syncing to cloud.</span></div></li>
+        </ul>
+        <button class="mt-8 bg-transparent border-2 border-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-slate-900 transition" onclick="window.location.href='index.html'"><i class="fas fa-arrow-left mr-2"></i> Back to Homepage</button>
+    </div>
+</body>
+</html>

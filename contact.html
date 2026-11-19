@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hal Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        hand: ['Caveat', 'cursive']
+                    },
+                    colors: {
+                        hal: {
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+
+        /* Modal animation */
+        .modal-enter {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Checkmark animation */
+        .checkmark-circle {
+            animation: checkScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes checkScale {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        /* Chip press */
+        .chip-active {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 pt-20 bg-slate-50">
+
+    <!-- FABs -->
+    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
+        <a href="https://wa.me/918851644415" target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+918851644415" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
+                    <div>
+                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
+                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
+                    </div>
+                </div>
+            </a>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
+                <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+                <a href="rate-card.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Scrap Rates</a>
+                <a href="blog.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Blog</a>
+                <a href="contact.html" class="text-hal-900 font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hal-500">Contact</a>
+                <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
+
+                <!-- Ecosystem Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
+                        <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
+                        <a href="admin.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div><div><p class="font-bold text-slate-900 text-sm">Admin Control Center</p><p class="text-xs text-slate-500">Platform Oversight</p></div></a>
+                        <a href="executive.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-hal-100 text-hal-600 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt"></i></div><div><p class="font-bold text-slate-900 text-sm">Executive App</p><p class="text-xs text-slate-500">Driver/Collector View</p></div></a>
+                        <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
+            <a href="index.html" class="hover:text-hal-500 transition">Home</a>
+            <a href="about.html" class="hover:text-hal-500 transition">About Us</a>
+            <a href="rate-card.html" class="hover:text-hal-500 transition">Scrap Rates</a>
+            <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
+            <a href="contact.html" class="text-hal-500 font-black">Contact</a>
+            <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <div class="border-t border-slate-200 pt-4 mt-2">
+                <p class="text-sm text-slate-400 uppercase tracking-widest mb-4">Ecosystem</p>
+                <a href="booking.html" class="block py-2 hover:text-hal-500 transition text-base">Booking Engine</a>
+                <a href="admin.html" class="block py-2 hover:text-hal-500 transition text-base">Admin Control Center</a>
+                <a href="executive.html" class="block py-2 hover:text-hal-500 transition text-base">Executive App</a>
+                <a href="enterprise.html" class="block py-2 hover:text-hal-500 transition text-base">Enterprise Portal</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- 1. Hero Section -->
+    <section class="relative bg-gradient-to-br from-hal-50 via-white to-cyan-50 pt-16 pb-20 overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-hal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-hal-accent rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div data-aos="fade-up">
+                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-6">
+                    <i class="fas fa-headset mr-2"></i>Customer Support
+                </span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-6xl font-black text-slate-900 mb-4 leading-tight">
+                We're here to <span class="text-hal-500">help you</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">
+                Got questions about scrap collection, pricing, or pickups? Our team is ready to assist you through any channel you prefer.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- 2. Support Hours Card -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 max-w-2xl mx-auto">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-hal-400 to-hal-600 flex items-center justify-center text-white text-2xl shadow-lg">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold text-slate-900">Support Hours</h3>
+                <p class="text-slate-500 font-medium">8:30 AM – 7:30 PM, all days</p>
+                <p class="text-sm text-hal-600 font-semibold mt-1"><i class="fas fa-circle text-[8px] text-green-500 mr-2 animate-pulse"></i>We're currently available</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 3. Contact Cards Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Email Card -->
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl shadow-md border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-500 text-2xl mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Email Us</h3>
+                <p class="text-sm text-slate-400 mb-4">We'll respond within 1 working day</p>
+                <a href="mailto:info@halsolution.com" class="text-hal-600 font-bold text-lg hover:text-hal-500 transition break-all">
+                    info@halsolution.com
+                </a>
+            </div>
+
+            <!-- WhatsApp Card (RECOMMENDED) -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl shadow-md border-2 border-[#25D366] p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
+                <span class="absolute top-4 right-4 bg-[#25D366] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Recommended</span>
+                <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-[#25D366] text-2xl mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">WhatsApp</h3>
+                <p class="text-sm text-slate-400 mb-4">Fastest way to reach us — instant replies</p>
+                <a href="https://wa.me/918851644415" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-xl font-bold hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp text-lg"></i> +91 8851 644 415
+                </a>
+            </div>
+
+            <!-- Callback Card -->
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-2xl shadow-md border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 rounded-2xl bg-hal-50 flex items-center justify-center text-hal-500 text-2xl mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Request a Callback</h3>
+                <p class="text-sm text-slate-400 mb-4">Our specialist will call within 15 minutes</p>
+                <button onclick="openCallbackModal()" class="inline-flex items-center gap-2 bg-gradient-to-r from-hal-500 to-hal-600 text-white px-5 py-2.5 rounded-xl font-bold hover:from-hal-600 hover:to-hal-700 transition shadow-lg hover:shadow-hal-500/30">
+                    <i class="fas fa-phone-alt"></i> Get a Call
+                </button>
+            </div>
+
+            <!-- Registered Address -->
+            <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-2xl shadow-md border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500 text-2xl mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Registered Address</h3>
+                <p class="text-sm text-slate-400 mb-3">Corporate Office</p>
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
+                </p>
+            </div>
+
+            <!-- Correspondence Address -->
+            <div data-aos="fade-up" data-aos-delay="500" class="bg-white rounded-2xl shadow-md border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-500 text-2xl mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Correspondence Address</h3>
+                <p class="text-sm text-slate-400 mb-3">Mailing & Communications</p>
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 4. Callback Modal -->
+    <div id="callback-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[300] hidden items-center justify-center p-4" onclick="closeCallbackModal(event)">
+        <div id="callback-modal" class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative modal-enter" onclick="event.stopPropagation()">
+
+            <!-- Close Button -->
+            <button onclick="closeCallbackModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-500 flex items-center justify-center transition">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+
+            <!-- Form State -->
+            <div id="callback-form">
+                <!-- Header -->
+                <div class="mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-hal-400 to-hal-600 flex items-center justify-center text-white text-2xl mb-4 shadow-lg">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900">Request a Callback</h2>
+                    <p class="text-slate-500 mt-1">Our specialist will reach out within 15 minutes</p>
+                </div>
+
+                <!-- Reason Chips -->
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-slate-700 mb-3">What's this about?</label>
+                    <div class="flex flex-wrap gap-2" id="reason-chips">
+                        <button type="button" class="reason-chip px-4 py-2 rounded-full border-2 border-slate-200 text-sm font-semibold text-slate-600 hover:border-hal-400 hover:text-hal-600 transition-all duration-200" data-reason="Scrap rates inquiry">
+                            <i class="fas fa-chart-bar mr-1.5"></i>Scrap rates inquiry
+                        </button>
+                        <button type="button" class="reason-chip px-4 py-2 rounded-full border-2 border-slate-200 text-sm font-semibold text-slate-600 hover:border-hal-400 hover:text-hal-600 transition-all duration-200" data-reason="Bulk scrap / Business">
+                            <i class="fas fa-truck mr-1.5"></i>Bulk scrap / Business
+                        </button>
+                        <button type="button" class="reason-chip px-4 py-2 rounded-full border-2 border-slate-200 text-sm font-semibold text-slate-600 hover:border-hal-400 hover:text-hal-600 transition-all duration-200" data-reason="Pickup reschedule">
+                            <i class="fas fa-calendar-alt mr-1.5"></i>Pickup reschedule
+                        </button>
+                        <button type="button" class="reason-chip px-4 py-2 rounded-full border-2 border-slate-200 text-sm font-semibold text-slate-600 hover:border-hal-400 hover:text-hal-600 transition-all duration-200" data-reason="Vehicle scrap">
+                            <i class="fas fa-car mr-1.5"></i>Vehicle scrap
+                        </button>
+                        <button type="button" class="reason-chip px-4 py-2 rounded-full border-2 border-slate-200 text-sm font-semibold text-slate-600 hover:border-hal-400 hover:text-hal-600 transition-all duration-200" data-reason="Other inquiry">
+                            <i class="fas fa-question-circle mr-1.5"></i>Other inquiry
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Full Name -->
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
+                    <input type="text" id="cb-name" placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400">
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-4 rounded-l-xl border-2 border-r-0 border-slate-200 bg-slate-50 text-slate-600 font-bold text-sm">
+                            <img src="images/in.png.png" alt="IN" class="mr-2 rounded-sm"> +91
+                        </span>
+                        <input type="tel" id="cb-phone" placeholder="8851 644 415" class="w-full px-4 py-3 rounded-r-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400" maxlength="10">
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Location</label>
+                    <div class="relative">
+                        <input type="text" id="cb-location" placeholder="Enter your city or area" class="w-full px-4 py-3 pr-36 rounded-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400">
+                        <button type="button" onclick="detectLocation()" id="detect-btn" class="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-bold text-hal-600 hover:text-hal-700 bg-hal-50 hover:bg-hal-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                            <i class="fas fa-crosshairs"></i> Detect Location
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button onclick="submitCallback()" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-hal-500 to-hal-700 text-white font-bold text-lg hover:from-hal-600 hover:to-hal-800 transition shadow-xl hover:shadow-hal-500/30 hover:-translate-y-0.5 active:translate-y-0">
+                    <i class="fas fa-phone-alt mr-2"></i> Request Callback
+                </button>
+            </div>
+
+            <!-- Success State -->
+            <div id="callback-success" class="hidden text-center py-8">
+                <div class="checkmark-circle w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-4xl text-green-500"></i>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Callback Requested!</h3>
+                <p class="text-slate-500 font-medium mb-6">We'll call you back shortly!</p>
+                <button onclick="closeCallbackModal()" class="px-8 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 5. Embedded Map Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center mb-10">
+                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+                    <i class="fas fa-map-marked-alt mr-2"></i>Find Us
+                </span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">Our Location</h2>
+                <p class="text-slate-500 font-medium mt-2">UPSIDC Kasna Industrial Area, Greater Noida</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="150" class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+                <iframe
+                    src="images/embed.jpg"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- AOS + Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // Navbar scroll shadow
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // ---- Callback Modal Logic ----
+        let selectedReasons = [];
+
+        function openCallbackModal() {
+            const overlay = document.getElementById('callback-overlay');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            // Reset form
+            document.getElementById('callback-form').classList.remove('hidden');
+            document.getElementById('callback-success').classList.add('hidden');
+            document.getElementById('cb-name').value = '';
+            document.getElementById('cb-phone').value = '';
+            document.getElementById('cb-location').value = '';
+            selectedReasons = [];
+            document.querySelectorAll('.reason-chip').forEach(chip => {
+                chip.classList.remove('bg-hal-500', 'text-white', 'border-hal-500', 'chip-active');
+                chip.classList.add('border-slate-200', 'text-slate-600');
+            });
+        }
+
+        function closeCallbackModal(e) {
+            if (e && e.target !== e.currentTarget) return;
+            const overlay = document.getElementById('callback-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Reason Chips toggle
+        document.querySelectorAll('.reason-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const reason = this.dataset.reason;
+                if (selectedReasons.includes(reason)) {
+                    selectedReasons = selectedReasons.filter(r => r !== reason);
+                    this.classList.remove('bg-hal-500', 'text-white', 'border-hal-500', 'chip-active');
+                    this.classList.add('border-slate-200', 'text-slate-600');
+                } else {
+                    selectedReasons.push(reason);
+                    this.classList.add('bg-hal-500', 'text-white', 'border-hal-500', 'chip-active');
+                    this.classList.remove('border-slate-200', 'text-slate-600');
+                }
+            });
+        });
+
+        // Detect Location
+        function detectLocation() {
+            const btn = document.getElementById('detect-btn');
+            const locationInput = document.getElementById('cb-location');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detecting...';
+            btn.disabled = true;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const lat = position.coords.latitude.toFixed(4);
+                        const lon = position.coords.longitude.toFixed(4);
+                        // Use reverse geocoding via a simple display
+                        locationInput.value = `Lat: ${lat}, Lon: ${lon} (Greater Noida area)`;
+                        btn.innerHTML = '<i class="fas fa-check text-green-500"></i> Detected';
+                        setTimeout(() => {
+                            btn.innerHTML = '<i class="fas fa-crosshairs"></i> Detect Location';
+                            btn.disabled = false;
+                        }, 3000);
+                    },
+                    function(error) {
+                        locationInput.value = 'Greater Noida, UP';
+                        btn.innerHTML = '<i class="fas fa-crosshairs"></i> Detect Location';
+                        btn.disabled = false;
+                    },
+                    { timeout: 10000 }
+                );
+            } else {
+                locationInput.value = 'Greater Noida, UP';
+                btn.innerHTML = '<i class="fas fa-crosshairs"></i> Detect Location';
+                btn.disabled = false;
+            }
+        }
+
+        // Submit Callback
+        function submitCallback() {
+            const name = document.getElementById('cb-name').value.trim();
+            const phone = document.getElementById('cb-phone').value.trim();
+            const location = document.getElementById('cb-location').value.trim();
+
+            if (!name) {
+                shakeInput('cb-name');
+                return;
+            }
+            if (!phone || phone.length < 10) {
+                shakeInput('cb-phone');
+                return;
+            }
+
+            // Simulate submit
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('callback-form').classList.add('hidden');
+                document.getElementById('callback-success').classList.remove('hidden');
+                btn.innerHTML = '<i class="fas fa-phone-alt mr-2"></i> Request Callback';
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        function shakeInput(id) {
+            const el = document.getElementById(id);
+            el.classList.add('border-red-400');
+            el.style.animation = 'shake 0.4s ease-in-out';
+            el.focus();
+            setTimeout(() => {
+                el.classList.remove('border-red-400');
+                el.style.animation = '';
+            }, 600);
+        }
+
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCallbackModal();
+        });
+    </script>
+
+    <style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+        }
+    </style>
+
+</body>
+</html>

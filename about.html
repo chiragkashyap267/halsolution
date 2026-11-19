@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hal Solution</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'], hand: ['Caveat', 'cursive'] },
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="antialiased text-slate-800 pt-20 bg-slate-50">
+    
+    <!-- Right Fixed Floating Action Buttons (FAB) -->
+    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-share-alt"></i></a>
+        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-recycle text-3xl text-hal-500"></i>
+                    <div>
+                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
+                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
+                    </div>
+                </div>
+            </a>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
+                <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="about.html" class="text-hal-900 font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hal-500">About</a>
+                <a href="rate-card.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Scrap Rates</a>
+                <a href="blog.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Blog</a>
+                <a href="contact.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
+
+                <!-- Ecosystem Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
+                        <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
+                        <a href="admin.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div><div><p class="font-bold text-slate-900 text-sm">Admin Control Center</p><p class="text-xs text-slate-500">Platform Oversight</p></div></a>
+                        <a href="executive.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-hal-100 text-hal-600 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt"></i></div><div><p class="font-bold text-slate-900 text-sm">Executive App</p><p class="text-xs text-slate-500">Driver/Collector View</p></div></a>
+                        <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[200] transform translate-x-full transition-transform duration-300 flex flex-col p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <button class="text-2xl text-slate-500 hover:text-red-500" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex flex-col gap-5 font-bold text-lg text-slate-700">
+            <a href="index.html" class="hover:text-hal-500 transition">Home</a>
+            <a href="rate-card.html" class="hover:text-hal-500 transition">Scrap Rates</a>
+            <a href="about.html" class="text-hal-600 font-black">About Us</a>
+            <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
+            <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
+            <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <div class="pt-4 border-t border-slate-100 flex flex-col gap-3 text-sm">
+                <span class="text-xs uppercase text-slate-400 font-black">Ecosystem Portals</span>
+                <a href="booking.html" class="text-hal-600">Booking Engine</a>
+                <a href="admin.html" class="text-slate-600">Admin Control Center</a>
+                <a href="executive.html" class="text-slate-600">Executive App</a>
+                <a href="enterprise.html" class="text-slate-600">Enterprise Portal</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-6">About Us ♻️</h1>
+        <p class="text-xl text-slate-600 font-medium mb-12">Your trusted partner for hassle-free scrap collection and sustainable recycling solutions. 🌍</p>
+
+        <section class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-slate-100 mb-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Who We Are 👋</h2>
+            <p class="text-slate-600 text-lg leading-relaxed mb-6">Hal Solution is a technology-driven waste management platform that connects individuals and businesses with verified scrap collectors. Our mission is to make recycling easy, transparent, and environmentally impactful.</p>
+            <p class="text-slate-600 text-lg leading-relaxed">Whether it's your old newspapers 📰, electronics 💻, metals ⚙️, or plastics 🥤 — we ensure everything gets responsibly recycled and never ends up in landfills.</p>
+        </section>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-hal-900 text-white rounded-2xl p-8 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">Our Mission 🎯</h2>
+                <p class="text-hal-100 text-lg leading-relaxed mb-4">To simplify waste disposal through innovation, ensuring fair returns and a greener planet 🌱 for future generations.</p>
+                <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                    <p class="text-hal-300 font-hand text-2xl">"Recycling made simple. Rewards made fair."</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold mb-6 text-slate-900">Our Core Values ❤️</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3"><div class="mt-1 bg-hal-100 text-hal-600 rounded-full w-6 h-6 flex items-center justify-center"><i class="fas fa-check text-xs"></i></div> <div><strong class="text-slate-900">Environmental Responsibility</strong></div></li>
+                    <li class="flex items-start gap-3"><div class="mt-1 bg-hal-100 text-hal-600 rounded-full w-6 h-6 flex items-center justify-center"><i class="fas fa-check text-xs"></i></div> <div><strong class="text-slate-900">Trust & Reliability</strong></div></li>
+                    <li class="flex items-start gap-3"><div class="mt-1 bg-hal-100 text-hal-600 rounded-full w-6 h-6 flex items-center justify-center"><i class="fas fa-check text-xs"></i></div> <div><strong class="text-slate-900">Fair Pricing Guarantee</strong></div></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">HAL SOLUTION</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

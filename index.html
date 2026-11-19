@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hal Solution - Sell Recyclables Online!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Poppins', 'sans-serif'],
+                        hand: ['Caveat', 'cursive']
+                    },
+                    colors: { 
+                        hal: { 
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' 
+                        } 
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'shine': 'shine 2s infinite'
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        shine: {
+                            '0%': { backgroundPosition: '200% center' },
+                            '100%': { backgroundPosition: '-200% center' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; overflow-x: hidden; }
+        
+        /* Floating animations for hero items */
+        .float-1 { animation: float 6s ease-in-out infinite; }
+        .float-2 { animation: float 5s ease-in-out infinite reverse; }
+        .float-3 { animation: float 7s ease-in-out infinite 1s; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(6,182,212,0.05) 0%, rgba(255,255,255,0) 100%);
+            position: relative;
+        }
+
+        /* Glassmorphism widget */
+        .glass-widget {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.1);
+        }
+
+        /* Glowing button hover */
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Concentric circles */
+        .circle-outer {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 2px solid rgba(6,182,212,0.1);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+        }
+        .step-card:hover .circle-outer { border-color: rgba(6,182,212,0.5); transform: scale(1.05); }
+        .circle-mid {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background-color: rgba(6,182,212,0.15);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .circle-inner {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background-color: rgba(6,182,212,0.3);
+            display: flex; align-items: center; justify-content: center;
+            color: #0891B2;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover .circle-inner { background-color: #06B6D4; color: white; transform: rotate(10deg) scale(1.1); }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(6,182,212,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(6,182,212,0.05) 1px, transparent 1px);
+        }
+
+        .hand-arrow {
+            width: 40px; height: 40px;
+            border-left: 2px solid #0891B2;
+            border-bottom: 2px solid #0891B2;
+            border-bottom-left-radius: 20px;
+            position: absolute;
+        }
+        .hand-arrow::after {
+            content: ''; position: absolute; bottom: -6px; right: -2px; width: 10px; height: 10px; border-top: 2px solid #0891B2; border-right: 2px solid #0891B2; transform: rotate(45deg);
+        }
+        
+        /* Marquee wrapper hide scrollbar */
+        .marquee-wrapper { overflow: hidden; white-space: nowrap; position: relative; }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
+    </style>
+</head>
+<body class="antialiased text-slate-800 pt-20">
+
+    <!-- Background Animated Blobs (WOW FACTOR) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-hal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- FABs -->
+    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
+        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
+                    <div>
+                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
+                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
+                    </div>
+                </div>
+            </a>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
+                <a href="index.html" class="text-hal-900 font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hal-500">Home</a>
+                <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+                <a href="rate-card.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Scrap Rates</a>
+                <a href="blog.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Blog</a>
+                <a href="contact.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
+                
+                <!-- Ecosystem Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
+                        <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
+                        <a href="admin.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div><div><p class="font-bold text-slate-900 text-sm">Admin Control Center</p><p class="text-xs text-slate-500">Platform Oversight</p></div></a>
+                        <a href="executive.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-hal-100 text-hal-600 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt"></i></div><div><p class="font-bold text-slate-900 text-sm">Executive App</p><p class="text-xs text-slate-500">Driver/Collector View</p></div></a>
+                        <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
+            <a href="index.html" class="hover:text-hal-500 transition">Home</a>
+            <a href="rate-card.html" class="hover:text-hal-500 transition">Scrap Rates</a>
+            <a href="about.html" class="hover:text-hal-500 transition">About Us</a>
+            <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
+            <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
+        </nav>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-bg relative pt-24 pb-32 overflow-hidden text-center z-10 border-b border-slate-100">
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-1/4 text-4xl text-blue-300 float-1 opacity-60"><i class="fas fa-water"></i></div>
+        <div class="absolute top-32 left-[10%] text-5xl text-slate-300 float-2"><i class="fas fa-hdd"></i></div>
+        <div class="absolute bottom-20 left-[20%] text-4xl text-hal-accent float-3 drop-shadow-xl"><i class="fas fa-coins"></i></div>
+        
+        <div class="absolute top-10 right-1/4 text-5xl text-slate-200 float-2"><i class="fas fa-file-alt"></i></div>
+        <div class="absolute top-40 right-[15%] text-4xl text-slate-400 float-1"><i class="fas fa-screwdriver"></i></div>
+        <div class="absolute bottom-32 right-[10%] text-4xl text-hal-accent float-3 drop-shadow-xl"><i class="fas fa-coins"></i></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <!-- Animated Title -->
+            <h1 data-aos="fade-up" data-aos-duration="1000" class="text-6xl md:text-7xl lg:text-[5.5rem] font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                Sell Recyclables <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-hal-500 to-hal-900">Online!</span>
+            </h1>
+            
+            <!-- Animated Subtitle -->
+            <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="text-xl md:text-2xl text-slate-600 font-medium mb-16 flex items-center justify-center gap-4">
+                Schedule <i class="fas fa-arrow-right text-sm text-hal-500"></i> We Collect <i class="fas fa-arrow-right text-sm text-hal-500"></i> You Get Paid Instantly
+            </p>
+
+            <!-- Booking Widget (Glassmorphism) -->
+            <div data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000" class="relative max-w-2xl mx-auto">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-1 bg-gradient-to-r from-hal-600 to-hal-500 text-white rounded-full z-20 shadow-lg font-bold text-sm tracking-wide">
+                    SCHEDULE A PICKUP
+                </div>
+                
+                <div class="glass-widget rounded-[3rem] p-3 transition duration-500 hover:shadow-[0_15px_40px_rgba(6,182,212,0.2)]">
+                    <div class="border border-white/60 rounded-[2.5rem] p-1.5 bg-white/80 shadow-inner">
+                        <div class="flex items-center rounded-full overflow-hidden bg-white px-2 h-16">
+                            <span class="text-slate-400 font-bold pl-4 pr-3 border-r border-slate-200 text-lg">+91</span>
+                            <input type="tel" id="hero-mobile-input" class="w-full h-full px-4 outline-none text-xl text-slate-700 placeholder-slate-300 font-medium bg-transparent" placeholder="Enter mobile number" maxlength="10">
+                            <button onclick="startBookingFromHero()" class="btn-glow h-12 px-8 rounded-full bg-gradient-to-r from-hal-700 to-hal-500 text-white font-bold tracking-wide flex items-center justify-center flex-shrink-0 transition duration-300 mr-1 bg-[length:200%_auto] animate-shine">
+                                Go <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ratings -->
+            <div data-aos="fade-up" data-aos-delay="600" class="mt-8 flex flex-col items-center gap-2">
+                <div class="bg-hal-accent text-slate-900 px-5 py-1.5 rounded-full text-sm font-black shadow-md inline-flex items-center gap-2 border border-yellow-300 hover:scale-105 transition">
+                    <i class="fas fa-star text-xs"></i> 4.3 | 1M+ Happy Users
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- POPULAR RATES SECTION (Pixel-Perfect Match with ScrapUncle) -->
+    <section class="max-w-6xl mx-auto px-4 py-8 relative z-20">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">Popular Rates</h2>
+            <a href="rate-card.html" class="text-hal-600 hover:text-hal-700 font-bold text-sm md:text-base flex items-center gap-1.5 group transition">
+                <span>View all</span>
+                <i class="fas fa-chevron-right text-xs group-hover:translate-x-1 transition duration-200"></i>
+            </a>
+        </div>
+
+        <!-- 6 Popular Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            
+            <!-- 1. Newspaper -->
+            <div onclick="selectHomepageCalc('Newspaper (Raddi)', 11, 'kg')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1504711434969-e33886168f5c.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="Newspaper">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">Newspaper</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹11<span class="text-xs font-normal text-slate-500">/kg</span></p>
+            </div>
+
+            <!-- 2. Clothes -->
+            <div onclick="selectHomepageCalc('Used / Old Clothes', 4, 'kg')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1523381210434-271e8be1f52b.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="Clothes">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">Clothes</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹4<span class="text-xs font-normal text-slate-500">/kg</span></p>
+            </div>
+
+            <!-- 3. Window / Split AC -->
+            <div onclick="selectHomepageCalc('Window / Split AC (1.5 Ton)', 5200, 'unit')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="AC">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">Window / Split AC</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹5,200<span class="text-xs font-normal text-slate-500">/pc</span></p>
+            </div>
+
+            <!-- 4. Bike -->
+            <div onclick="selectHomepageCalc('Motorcycle / Bike Scrap', 2500, 'unit')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1558981403-c5f9899a28bc_1.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="Bike">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">Bike</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹2,500<span class="text-xs font-normal text-slate-500">/pc</span></p>
+            </div>
+
+            <!-- 5. UPS -->
+            <div onclick="selectHomepageCalc('UPS (Computer Power Supply)', 180, 'unit')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1544716278-ca5e3f4abd8c.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="UPS">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">UPS</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹180<span class="text-xs font-normal text-slate-500">/pc</span></p>
+            </div>
+
+            <!-- 6. Computer CPU -->
+            <div onclick="selectHomepageCalc('Desktop Computer CPU', 400, 'unit')" 
+                 class="bg-gradient-to-b from-cyan-50/80 to-white border border-cyan-100 rounded-3xl p-4 text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                <div class="w-full h-24 mb-3 rounded-2xl overflow-hidden bg-white shadow-inner flex items-center justify-center p-2">
+                    <img src="images/unsplash_1587202372634-32705e3bf49c.jpg" class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition duration-300" alt="CPU">
+                </div>
+                <h4 class="font-bold text-slate-900 text-sm truncate">Computer CPU</h4>
+                <p class="font-black text-slate-900 text-lg mt-1">₹400<span class="text-xs font-normal text-slate-500">/pc</span></p>
+            </div>
+
+        </div>
+        <p class="text-xs text-slate-400 mt-3">*Rates vary according to area. Click any item to calculate live payout below.</p>
+    </section>
+
+    <!-- INTERACTIVE HOMEPAGE SCRAP VALUE CALCULATOR -->
+    <section class="max-w-6xl mx-auto px-4 py-8 relative z-20">
+        <div class="bg-gradient-to-br from-hal-900 via-hal-800 to-slate-900 text-white rounded-[2.5rem] p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/10 pb-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hal-500/20 text-hal-300 text-xs font-bold mb-2 border border-hal-500/30">
+                        <i class="fas fa-calculator text-hal-accent"></i> Live Value Calculator
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-black">How much will you earn today?</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Choose an item, adjust your estimated scrap volume, and see your doorstep payout instantly.</p>
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-2xl border border-white/10 text-xs font-bold text-cyan-300">
+                    <i class="fas fa-scale-balanced text-sm"></i> 100% Certified Scale Guarantee
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Controls (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-200 mb-2">Select Scrap Item</label>
+                        <select id="hp-calc-item" onchange="onHpCalcChange()" 
+                                class="w-full bg-slate-800/90 text-white border border-white/20 rounded-2xl p-4 font-bold text-base shadow-lg outline-none cursor-pointer focus:ring-2 focus:ring-cyan-400">
+                            <option value="11,kg" selected>Newspaper (Raddi) — ₹11 /kg</option>
+                            <option value="4,kg">Used Clothes — ₹4 /kg</option>
+                            <option value="28,kg">Iron Scrap (Loha) — ₹28 /kg</option>
+                            <option value="425,kg">Copper Scrap (Taamba) — ₹425 /kg</option>
+                            <option value="110,kg">Aluminium Scrap — ₹110 /kg</option>
+                            <option value="8,kg">Cardboard Boxes — ₹8 /kg</option>
+                            <option value="5200,unit">Window / Split AC (1.5 Ton) — ₹5,200 /pc</option>
+                            <option value="1200,unit">Double Door Refrigerator — ₹1,200 /pc</option>
+                            <option value="400,unit">Desktop Computer CPU — ₹400 /pc</option>
+                            <option value="400,unit">Laptop (Scrap) — ₹400 /pc</option>
+                            <option value="2500,unit">Motorcycle / Bike Scrap — ₹2,500 /pc</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-black uppercase tracking-wider text-cyan-200">Weight / Quantity</label>
+                            <span class="text-sm font-black text-white bg-white/10 px-3 py-1 rounded-xl" id="hp-qty-badge">25 kg</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="hp-slider" min="1" max="150" value="25" oninput="onHpSlider(this.value)"
+                                   class="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex items-center bg-slate-800 border border-white/20 rounded-2xl px-3 py-2 w-28 shrink-0">
+                                <input type="number" id="hp-number" min="1" max="1000" value="25" oninput="onHpNumber(this.value)"
+                                       class="w-full font-black text-white text-lg outline-none bg-transparent text-center">
+                                <span class="text-xs font-bold text-slate-400 shrink-0" id="hp-unit-label">kg</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Presets -->
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <button type="button" onclick="setHpQty(5)" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition">+5</button>
+                            <button type="button" onclick="setHpQty(15)" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition">+15</button>
+                            <button type="button" onclick="setHpQty(25)" class="px-3 py-1 rounded-xl bg-white/20 text-cyan-300 text-xs font-bold transition">+25</button>
+                            <button type="button" onclick="setHpQty(50)" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition">+50</button>
+                            <button type="button" onclick="setHpQty(100)" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition">+100</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box (5 cols) -->
+                <div class="lg:col-span-5 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 text-center flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="text-xs uppercase font-black tracking-widest text-cyan-200">Instant Doorstep Payout</span>
+                        <div class="text-5xl sm:text-6xl font-black text-hal-accent my-3 tracking-tight" id="hp-payout">
+                            ₹275
+                        </div>
+                        <p class="text-xs text-slate-400 font-medium" id="hp-calc-breakdown">
+                            25 kg × ₹11/kg
+                        </p>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-white/10 space-y-3">
+                        <button onclick="scheduleWithHpEstimate()" 
+                                class="w-full bg-gradient-to-r from-hal-500 to-cyan-500 hover:from-hal-600 hover:to-cyan-600 text-white font-black py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2 text-base">
+                            <span>Book Pickup for ₹<span id="hp-btn-amt">275</span></span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </button>
+                        <a href="rate-card.html" class="block text-xs font-bold text-cyan-300 hover:text-white transition">
+                            View All 38+ Material Rates with Multi-Cart →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 2. 100% Weighing Section -->
+    <section class="max-w-6xl mx-auto px-4 py-20 relative z-10">
+        <div data-aos="fade-up" class="bg-gradient-to-br from-hal-200 via-hal-50 to-white rounded-[2.5rem] p-8 md:p-14 flex flex-col md:flex-row items-center justify-between overflow-hidden relative shadow-[0_20px_50px_rgba(6,182,212,0.1)] border border-white">
+            
+            <!-- Deco circles -->
+            <div class="absolute -top-20 -left-20 w-64 h-64 bg-white/40 rounded-full blur-2xl"></div>
+            
+            <div class="md:w-1/2 z-10 mb-10 md:mb-0 relative">
+                <div data-aos="zoom-in" data-aos-delay="200" class="w-16 h-16 bg-gradient-to-br from-hal-400 to-hal-600 text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg transform -rotate-6">
+                    <i class="fas fa-balance-scale-right"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-hal-900 leading-tight mb-6 tracking-tight">100% weighing<br><span class="text-hal-500">accuracy</span> guaranteed</h2>
+                <p class="text-hal-700 text-xl font-medium">Powered by Hal Solution's Smart Digital Weighing Scales connected directly to the cloud.</p>
+            </div>
+            
+            <div class="md:w-1/2 relative flex justify-end">
+                <div class="w-72 h-72 bg-emerald-400 rounded-full absolute -bottom-10 -right-10 blur-3xl opacity-20 animate-pulse"></div>
+                <img data-aos="fade-left" data-aos-delay="300" src="images/unsplash_1586864387967-d02ef85d93e8.jpg" class="w-[350px] rounded-3xl shadow-2xl relative z-10 object-cover aspect-[4/3] border-4 border-white transition-transform duration-700 hover:scale-105 hover:rotate-2" alt="Digital Scale (Creative)">
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE GIFT Promotional Banner -->
+    <section class="relative z-10 overflow-hidden">
+        <div data-aos="zoom-in" class="relative bg-gradient-to-r from-hal-900 via-hal-800 to-hal-700 py-16 md:py-20" style="background-size: 200% 200%; animation: gradientShift 6s ease infinite;">
+            <!-- Decorative sparkles -->
+            <div class="absolute top-4 left-[10%] text-hal-accent text-2xl opacity-60 animate-pulse"><i class="fas fa-star"></i></div>
+            <div class="absolute bottom-6 right-[15%] text-hal-accent text-xl opacity-50 animate-pulse" style="animation-delay: 1s;"><i class="fas fa-star"></i></div>
+            <div class="absolute top-8 right-[30%] text-hal-300 text-lg opacity-40 animate-pulse" style="animation-delay: 0.5s;"><i class="fas fa-gift"></i></div>
+            
+            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-3/5 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-hal-accent text-slate-900 px-4 py-1.5 rounded-full text-sm font-black mb-6 shadow-lg">
+                        <i class="fas fa-gift"></i> BONUS OFFER
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tight">
+                        You also get a <span class="text-hal-accent">FREE GIFT</span> with your pickup!
+                    </h2>
+                    <p class="text-hal-200 text-lg md:text-xl font-medium mb-6">Sponsored by partner brands — Pickups above <span class="text-hal-accent font-bold">₹499</span></p>
+                    <button onclick="window.location.href='booking.html'" class="bg-hal-accent text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-yellow-300 transition shadow-lg hover:-translate-y-1 text-lg">
+                        Book Now & Claim Gift <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-hal-accent rounded-3xl rotate-6 group-hover:rotate-12 transition duration-500 opacity-20"></div>
+                        <img src="images/unsplash_1513885535751-8b9238bd345a.jpg" class="w-72 h-56 object-cover rounded-3xl shadow-2xl relative z-10 border-4 border-white/20 group-hover:scale-105 transition duration-500" alt="Free Gift Items">
+                        <!-- Floating gift badge -->
+                        <div class="absolute -top-4 -right-4 w-16 h-16 bg-hal-accent rounded-full flex items-center justify-center text-slate-900 text-2xl font-black z-20 shadow-xl animate-bounce border-4 border-white">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Infinite Scrolling Marquee (Media Recognitions) -->
+    <section class="py-16 border-y border-slate-100 bg-white overflow-hidden relative z-10">
+        <h2 data-aos="fade-up" class="text-center text-sm font-bold text-slate-400 tracking-widest uppercase mb-10">Recognized By Top Media</h2>
+        <div class="marquee-wrapper">
+            <div class="flex animate-marquee gap-8 items-center w-[200%]">
+                <!-- Set 1 -->
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
+                
+                <!-- Set 2 (Duplicate for infinite loop) -->
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
+                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 3 Simple Steps -->
+    <section class="py-24 bg-slate-50 relative z-10 border-b border-slate-200">
+        <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-black text-slate-900 mb-20 tracking-tight">Best Value for your Scrap in <span class="text-hal-500 relative inline-block">3 simple steps<svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="#FACC15" stroke-width="3"/></svg></span></h2>
+        
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative">
+            
+            <!-- Connecting line (desktop only) -->
+            <div class="hidden md:block absolute top-24 left-[15%] right-[15%] h-1 bg-gradient-to-r from-hal-200 via-hal-400 to-hal-200 z-0 opacity-50"></div>
+
+            <!-- Step 1 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="step-card relative z-10 cursor-pointer">
+                <div class="circle-outer mb-8 bg-slate-50 shadow-sm">
+                    <div class="circle-mid">
+                        <div class="circle-inner shadow-inner"><i class="fas fa-box-open"></i></div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                    <p class="text-hal-500 font-black mb-2 uppercase tracking-widest text-sm">Step 1</p>
+                    <h4 class="text-xl font-bold text-slate-900">Schedule Pickup</h4>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="step-card relative z-10 cursor-pointer">
+                <div class="circle-outer mb-8 bg-slate-50 shadow-sm">
+                    <div class="circle-mid">
+                        <div class="circle-inner shadow-inner"><i class="fas fa-truck-moving"></i></div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                    <p class="text-hal-500 font-black mb-2 uppercase tracking-widest text-sm">Step 2</p>
+                    <h4 class="text-xl font-bold text-slate-900 leading-tight">Our Trained Crew<br>Collects Scrap</h4>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div data-aos="fade-up" data-aos-delay="500" class="step-card relative z-10 cursor-pointer">
+                <div class="circle-outer mb-8 bg-slate-50 shadow-sm">
+                    <div class="circle-mid">
+                        <div class="circle-inner shadow-inner"><i class="fas fa-money-bill-wave"></i></div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                    <p class="text-hal-500 font-black mb-2 uppercase tracking-widest text-sm">Step 3</p>
+                    <h4 class="text-xl font-bold text-slate-900 leading-tight">Get Instant Payment<br>Before We Leave</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Recyclables we pick -->
+    <section class="py-24 bg-grid relative z-10 border-b border-slate-100 bg-white">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-5xl font-black text-slate-900 mb-4 tracking-tight">Recyclables we pick</h2>
+            <p class="text-slate-500 font-bold text-lg">Paper | Plastic | Metals | E-Waste | Appliances & More</p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto h-[500px] flex items-center justify-center">
+            
+            <!-- Central Cluster Image Creative -->
+            <div data-aos="zoom-in" data-aos-duration="1000" class="relative w-80 h-80 bg-white rounded-full shadow-[0_0_50px_rgba(6,182,212,0.2)] z-10 border-8 border-hal-50 p-2 overflow-hidden group">
+                <img src="images/unsplash_1604187351574-c75ca79f5807.jpg" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-700" alt="Recyclables Creative">
+                <div class="absolute inset-0 rounded-full bg-hal-500 mix-blend-color opacity-20"></div>
+            </div>
+
+            <!-- Hand-drawn labels & arrows with delays -->
+            <div data-aos="fade-left" data-aos-delay="300" class="absolute top-10 right-[15%] text-hal-700 font-hand text-3xl font-bold hover:scale-110 transition cursor-default">
+                Clothes
+                <svg class="absolute -bottom-10 -left-12 w-20 h-20 text-hal-500 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+            </div>
+            
+            <div data-aos="fade-left" data-aos-delay="500" class="absolute top-1/2 right-[5%] text-hal-700 font-hand text-3xl font-bold hover:scale-110 transition cursor-default">
+                Metal
+                <svg class="absolute top-2 -left-16 w-16 h-16 text-hal-500 transform rotate-90 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="700" class="absolute bottom-10 right-[25%] text-hal-700 font-hand text-3xl font-bold hover:scale-110 transition cursor-default">
+                E-Waste
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="400" class="absolute top-20 left-[15%] text-hal-700 font-hand text-3xl font-bold hover:scale-110 transition cursor-default">
+                Plastic
+                <svg class="absolute top-10 left-10 w-20 h-20 text-hal-500 transform rotate-180 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+            </div>
+
+            <div data-aos="fade-right" data-aos-delay="600" class="absolute bottom-20 left-[15%] text-hal-700 font-hand text-3xl font-bold hover:scale-110 transition cursor-default">
+                Paper
+            </div>
+
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+            <button class="bg-slate-900 text-white px-10 py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-xl hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:-translate-y-1 tracking-wide" onclick="window.location.href='rate-card.html'">See Full Price List <i class="fas fa-arrow-right ml-2 text-sm"></i></button>
+        </div>
+    </section>
+
+    <!-- Circular Journey Flowchart -->
+    <section class="py-24 bg-white relative z-10 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-hal-500 font-black text-sm uppercase tracking-widest mb-3"><i class="fas fa-sync-alt mr-2"></i>Our Process</p>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">From Pickup to Recycling:<br><span class="text-hal-500">The HAL Solution Circular Journey</span></h2>
+            </div>
+
+            <!-- Desktop: horizontal, Mobile: vertical -->
+            <div class="flex flex-col md:flex-row items-center justify-between relative gap-8 md:gap-0">
+
+                <!-- Dashed connecting line (desktop) -->
+                <div class="hidden md:block absolute top-[60px] left-[12%] right-[12%] border-t-2 border-dashed border-hal-300 z-0"></div>
+                <!-- Dashed connecting line (mobile) -->
+                <div class="md:hidden absolute top-[60px] bottom-[60px] left-1/2 -translate-x-1/2 border-l-2 border-dashed border-hal-300 z-0"></div>
+
+                <!-- Stage 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center text-center relative z-10 group w-full md:w-1/5">
+                    <div class="w-[120px] h-[120px] bg-white rounded-full border-4 border-hal-200 flex items-center justify-center shadow-lg mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-hal-500 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]">
+                        <div class="text-hal-600 text-3xl"><i class="fas fa-balance-scale"></i></div>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">Doorstep Collection</h4>
+                    <p class="text-slate-500 text-sm">Precise weighing & instant payment at your door</p>
+                </div>
+
+                <!-- Stage 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col items-center text-center relative z-10 group w-full md:w-1/5">
+                    <div class="w-[120px] h-[120px] bg-white rounded-full border-4 border-hal-200 flex items-center justify-center shadow-lg mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-hal-500 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]">
+                        <div class="text-hal-600 text-3xl"><i class="fas fa-layer-group"></i></div>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">Local Hub Aggregation</h4>
+                    <p class="text-slate-500 text-sm">Sorted into 15+ material grades</p>
+                </div>
+
+                <!-- Stage 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-center text-center relative z-10 group w-full md:w-1/5">
+                    <div class="w-[120px] h-[120px] bg-white rounded-full border-4 border-hal-200 flex items-center justify-center shadow-lg mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-hal-500 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]">
+                        <div class="text-hal-600 text-3xl"><i class="fas fa-truck"></i></div>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">Recycler Logistics</h4>
+                    <p class="text-slate-500 text-sm">Zero-landfill transport to authorized recyclers</p>
+                </div>
+
+                <!-- Stage 4 -->
+                <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col items-center text-center relative z-10 group w-full md:w-1/5">
+                    <div class="w-[120px] h-[120px] bg-white rounded-full border-4 border-hal-200 flex items-center justify-center shadow-lg mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-hal-500 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]">
+                        <div class="text-hal-600 text-3xl"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">Smelting & Reprocessing</h4>
+                    <p class="text-slate-500 text-sm">Raw materials extracted at certified facilities</p>
+                </div>
+
+                <!-- Stage 5 -->
+                <div data-aos="fade-up" data-aos-delay="500" class="flex flex-col items-center text-center relative z-10 group w-full md:w-1/5">
+                    <div class="w-[120px] h-[120px] bg-white rounded-full border-4 border-emerald-200 flex items-center justify-center shadow-lg mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-emerald-500 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.4)]">
+                        <div class="text-emerald-600 text-3xl"><i class="fas fa-leaf"></i></div>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base mb-1">Sustainable Manufacturing</h4>
+                    <p class="text-slate-500 text-sm">Recycled into new, eco-friendly products</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Households & Businesses -->
+    <section class="py-32 bg-slate-50 relative z-10 overflow-hidden">
+        <!-- Background circle -->
+        <div class="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-hal-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+        <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-black text-slate-900 mb-20 tracking-tight max-w-4xl mx-auto leading-tight">
+            Households & Businesses have different needs and we cater to <span class="text-hal-500">each of them</span>
+        </h2>
+        
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            
+            <!-- Left Side: List -->
+            <div data-aos="fade-right">
+                <h3 class="text-3xl font-black text-slate-900 mb-10 border-l-4 border-hal-500 pl-4">For Households</h3>
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4 text-slate-700 text-xl font-medium bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-full bg-hal-100 text-hal-600 flex items-center justify-center shrink-0"><i class="fas fa-check"></i></div> On-Demand Doorstep Pickups
+                    </li>
+                    <li class="flex items-center gap-4 text-slate-700 text-xl font-medium bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-full bg-hal-100 text-hal-600 flex items-center justify-center shrink-0"><i class="fas fa-check"></i></div> Accurate Digital Weighing
+                    </li>
+                    <li class="flex items-center gap-4 text-slate-700 text-xl font-medium bg-white p-4 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-full bg-hal-100 text-hal-600 flex items-center justify-center shrink-0"><i class="fas fa-check"></i></div> Safety (Trained & Verified Staff)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side: 3D House Creative -->
+            <div data-aos="fade-left" class="relative group">
+                <div class="absolute inset-0 bg-hal-400 rounded-[3rem] rotate-3 group-hover:rotate-6 transition duration-500 opacity-20"></div>
+                <img src="images/unsplash_1518780664697-55e3ad937233.jpg" class="rounded-[3rem] shadow-2xl object-cover w-full h-[450px] relative z-10 border-8 border-white group-hover:-translate-y-2 transition duration-500" alt="3D House Creative">
+                <!-- Floating badge -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-slate-100 animate-bounce">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center text-xl"><i class="fas fa-leaf"></i></div>
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold uppercase">Eco Impact</p>
+                        <p class="text-lg font-black text-slate-900">Zero Landfill</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 7. Customer Testimonials Section -->
+    <section class="py-28 bg-gradient-to-b from-slate-900 to-hal-950 text-white relative z-10 overflow-hidden">
+        <!-- Background light glows -->
+        <div class="absolute -top-32 left-1/4 w-96 h-96 bg-hal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-hal-500/20 text-hal-300 text-xs font-black mb-4 border border-hal-500/30">
+                    <i class="fas fa-heart text-red-400"></i> Loved by 1,000,000+ Happy Recyclers
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                    Real Stories from <span class="text-transparent bg-clip-text bg-gradient-to-r from-hal-400 to-cyan-300">Green Heroes</span>
+                </h2>
+                <p class="text-slate-400 text-base md:text-lg mt-3 font-medium">
+                    See why homeowners, gated societies, and corporate offices prefer HAL Solution over local unverified scrap dealers.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-7 border border-white/10 hover:border-hal-400/40 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-1 text-hal-accent text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-xs text-slate-400 ml-2 font-bold">5.0</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-medium">
+                        "Cleared out 45 kg of old books and an old dead split AC during Diwali spring cleaning. The collector brought a digital scale with a bright LED display. Got ₹6,240 transferred via UPI right at my door!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-hal-500 to-cyan-400 flex items-center justify-center font-bold text-slate-900 text-sm">
+                            AK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                                Amit K. Sharma <i class="fas fa-circle-check text-hal-400 text-xs" title="Verified Customer"></i>
+                            </h4>
+                            <p class="text-xs text-slate-400">Gaur City 2, Greater Noida</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-7 border border-white/10 hover:border-hal-400/40 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-1 text-hal-accent text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-xs text-slate-400 ml-2 font-bold">5.0</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-medium">
+                        "As secretary of our RWA society, we arranged a Sunday scrap drive with HAL Solution. They deployed two trucks, weighed carton boxes transparently, and handed us an official green recycling certificate."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center font-bold text-slate-900 text-sm">
+                            PR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                                Priya Ranganathan <i class="fas fa-circle-check text-hal-400 text-xs" title="Verified RWA"></i>
+                            </h4>
+                            <p class="text-xs text-slate-400">Jaypee Greens, Sector 128</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-7 border border-white/10 hover:border-hal-400/40 hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-1 text-hal-accent text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-xs text-slate-400 ml-2 font-bold">5.0</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-medium">
+                        "Sold 8 dead office computers and an old server rack. Their rates on e-waste and copper wires are significantly higher than regular scrap vendors. Prompt, uniformed team and digital invoice."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center font-bold text-slate-900 text-sm">
+                            VS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm flex items-center gap-1.5">
+                                Vikram Singh <i class="fas fa-circle-check text-hal-400 text-xs" title="Verified Business"></i>
+                            </h4>
+                            <p class="text-xs text-slate-400">Logix Techno Park, Noida</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Backed by Industry Leaders & Compliance Section -->
+    <section class="py-20 bg-slate-50 relative z-10 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">
+                Recognized Standards • Government Compliant • Zero-Landfill Certified
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto items-center">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition">
+                    <i class="fas fa-certificate text-3xl text-hal-600 mb-2"></i>
+                    <h5 class="font-bold text-slate-900 text-sm">ISO 14001:2015</h5>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Environmental Management</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition">
+                    <i class="fas fa-shield-halved text-3xl text-cyan-600 mb-2"></i>
+                    <h5 class="font-bold text-slate-900 text-sm">CPCB & SPCB Registered</h5>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Authorized E-Waste Dismantler</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition">
+                    <i class="fas fa-file-invoice text-3xl text-emerald-600 mb-2"></i>
+                    <h5 class="font-bold text-slate-900 text-sm">EPR Compliance Partner</h5>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Formal Producer Credit Flow</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition">
+                    <i class="fas fa-award text-3xl text-amber-500 mb-2"></i>
+                    <h5 class="font-bold text-slate-900 text-sm">Start-Up India Certified</h5>
+                    <p class="text-[11px] text-slate-400 mt-0.5">DPIIT Recognized Circular Tech</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Proven Scale Section -->
+    <section class="py-32 bg-white relative z-10 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 data-aos="fade-up" class="text-5xl font-black text-center text-slate-900 mb-6 tracking-tight">Proven Scale. <br><span class="text-hal-500">The Next Phase of Circular IT.</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-20 relative max-w-5xl mx-auto">
+                <div class="absolute inset-0 bg-grid opacity-30 z-0"></div>
+
+                <!-- 1M+ Users -->
+                <div data-aos="zoom-in-up" data-aos-delay="100" class="relative z-10 p-8 bg-white rounded-3xl shadow-[0_10px_30px_rgba(6,182,212,0.1)] border border-hal-100 hover:-translate-y-4 transition-transform duration-500">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-hal-50 to-hal-100 rounded-2xl flex items-center justify-center text-hal-600 text-4xl mb-6 shadow-inner border border-hal-200 transform -rotate-6 group-hover:rotate-0 transition">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-2 tracking-tight">1M+</h3>
+                    <p class="text-xl font-bold text-slate-500">Happy Users</p>
+                </div>
+
+                <!-- 50K+ Pickups -->
+                <div data-aos="zoom-in-up" data-aos-delay="300" class="relative z-10 p-8 bg-white rounded-3xl shadow-[0_10px_30px_rgba(6,182,212,0.1)] border border-hal-100 hover:-translate-y-4 transition-transform duration-500">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-hal-50 to-hal-100 rounded-2xl flex items-center justify-center text-hal-600 text-4xl mb-6 shadow-inner border border-hal-200 transform rotate-3 group-hover:rotate-0 transition">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-2 tracking-tight">50K+</h3>
+                    <p class="text-xl font-bold text-slate-500">Pickups Completed</p>
+                </div>
+
+                <!-- 2.5M+ KG Recycled -->
+                <div data-aos="zoom-in-up" data-aos-delay="500" class="relative z-10 p-8 bg-white rounded-3xl shadow-[0_10px_30px_rgba(6,182,212,0.1)] border border-hal-100 hover:-translate-y-4 transition-transform duration-500">
+                    <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-4xl mb-6 shadow-inner border border-emerald-200 transform -rotate-3 group-hover:rotate-0 transition">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-2 tracking-tight">2.5M+ <span class="text-3xl">KG</span></h3>
+                    <p class="text-xl font-bold text-slate-500">Material Recycled</p>
+                </div>
+            </div>
+
+            <!-- Contact Banner -->
+            <div data-aos="fade-up" class="mt-24 bg-gradient-to-r from-hal-900 to-hal-700 text-white rounded-[3rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl overflow-hidden relative">
+                <!-- Abstract BG lines -->
+                <svg class="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none"><path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100" fill="none" stroke="white" stroke-width="4"/></svg>
+
+                <div class="md:w-1/2 relative z-10">
+                    <h3 class="text-4xl md:text-5xl font-black leading-tight mb-4">Let's build the future of circular tech logistics.</h3>
+                    <button class="mt-4 bg-hal-accent text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-yellow-300 transition shadow-lg hover:-translate-y-1" onclick="window.location.href='booking.html'">Join Ecosystem</button>
+                </div>
+                
+                <div class="md:w-1/2 flex items-center gap-6 border-l-0 md:border-l-4 border-hal-500 pl-0 md:pl-10 relative z-10">
+                    <div class="text-hal-50 text-base md:text-lg space-y-3 font-medium">
+                        <p><strong class="text-white text-xl">Tarun Gaur</strong>, Founder & Mgmt</p>
+                        <p class="flex items-center gap-3"><i class="fas fa-envelope text-hal-300"></i> <a href="mailto:info@halsolution.com" class="hover:text-white transition">info@halsolution.com</a></p>
+                        <p class="flex items-center gap-3"><i class="fas fa-phone-alt text-hal-300"></i> +91 8851 644 415</p>
+                        <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-hal-300 mt-1"></i> <span>Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, 201308.</span></p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-xs text-slate-400 mt-6 font-bold tracking-widest uppercase">Company/platform claims; not independently audited.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // Add blur to navbar on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) {
+                document.getElementById('navbar').classList.add('shadow-md');
+            } else {
+                document.getElementById('navbar').classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+    <!-- Homepage Dynamic Calculator & Booking Script -->
+    <script>
+        let hpPrice = 11;
+        let hpUnit = 'kg';
+        let hpQty = 25;
+        let hpItemName = 'Newspaper (Raddi)';
+
+        function updateHpCalc() {
+            const total = hpPrice * hpQty;
+            document.getElementById('hp-payout').textContent = '₹' + total.toLocaleString();
+            document.getElementById('hp-btn-amt').textContent = total.toLocaleString();
+            document.getElementById('hp-calc-breakdown').textContent = hpQty + ' ' + hpUnit + ' × ₹' + hpPrice.toLocaleString() + '/' + hpUnit;
+            document.getElementById('hp-qty-badge').textContent = hpQty + ' ' + hpUnit;
+            document.getElementById('hp-unit-label').textContent = hpUnit;
+            document.getElementById('hp-slider').value = hpQty;
+            document.getElementById('hp-number').value = hpQty;
+        }
+
+        function onHpCalcChange() {
+            const val = document.getElementById('hp-calc-item').value;
+            const parts = val.split(',');
+            hpPrice = parseInt(parts[0]);
+            hpUnit = parts[1];
+            
+            const sel = document.getElementById('hp-calc-item');
+            hpItemName = sel.options[sel.selectedIndex].text.split('—')[0].trim();
+
+            const slider = document.getElementById('hp-slider');
+            if (hpUnit === 'unit') {
+                slider.max = 20;
+                if (hpQty > 20) hpQty = 1;
+            } else {
+                slider.max = 200;
+            }
+            updateHpCalc();
+        }
+
+        function onHpSlider(val) {
+            hpQty = parseInt(val) || 1;
+            updateHpCalc();
+        }
+
+        function onHpNumber(val) {
+            hpQty = parseInt(val) || 1;
+            updateHpCalc();
+        }
+
+        function setHpQty(val) {
+            hpQty = val;
+            updateHpCalc();
+        }
+
+        function selectHomepageCalc(name, price, unit) {
+            const sel = document.getElementById('hp-calc-item');
+            let found = false;
+            for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].text.includes(name.split(' ')[0])) {
+                    sel.selectedIndex = i;
+                    found = true;
+                    break;
+                }
+            }
+            hpPrice = price;
+            hpUnit = unit;
+            hpItemName = name;
+            updateHpCalc();
+            document.getElementById('hp-calc-item').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scheduleWithHpEstimate() {
+            const estimate = {};
+            estimate[hpItemName] = { price: hpPrice, unit: hpUnit, qty: hpQty };
+            try {
+                localStorage.setItem('hal_estimate', JSON.stringify(estimate));
+            } catch(e) {}
+            window.location.href = 'booking.html';
+        }
+
+        function startBookingFromHero() {
+            const phone = document.getElementById('hero-mobile-input').value.trim();
+            if (phone) {
+                try { localStorage.setItem('booking_phone', phone); } catch(e) {}
+                window.location.href = 'booking.html?phone=' + encodeURIComponent(phone);
+            } else {
+                window.location.href = 'booking.html';
+            }
+        }
+
+        // Initialize on load
+        updateHpCalc();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+# Original source archives and reference copy
+*.zip
+/HAL_Solution_Website/
+
+# Local configuration and dependencies
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db

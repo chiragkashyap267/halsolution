@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #mapDiv {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapDiv"></div>
+      
+    <script nonce="6iXEIq8wPQvOQt_rt_FuMg">
+      function onEmbedLoad() {
+        initEmbed([null,null,null,null,null,[[[2,"spotlit",null,null,null,null,null,[null,null,null,null,null,null,null,null,null,null,11,null,[null,null,null,null,null,null,null,null,null,null,null,null,null,1]]]],null,null,[[null,null,null,null,null,null,null,null,null,null,null,null,null,[[["4151114454055331843","8705388967054471913"],"/g/12hpgy0qd",null,[265210045,812821647],null,null,null,1,null,null,null,[[265130299,812721900],[265273600,812892201]],null,null,"gcid:locality"],0,1,null,null,0,null,0,0]]]],null,["en","in"],[null,null,null,"/maps/api/js/ApplicationService.GetEntityDetails","/maps/embed/upgrade204",null,"/maps/embed/record204"],null,null,null,null,null,null,null,null,"Bxz_ar-IIoaanesPiMDJ-Ao",null,null,null,[[[14026.68484375,81.28070504999999,26.52019495],[0,0,0],null,13.10000038146973],null,0,[["0x399bb89a37f52803:0x78cfc12474e2f2e9","Kasna, Uttar Pradesh 229308",[26.5210045,81.2821647]],"Kasna",["Uttar Pradesh 229308"],null,null,null,null,null,null,null,null,null,null,"Uttar Pradesh 229308",null,null,null,null,null,null,null,null,null,null,1,null,null,"ChIJAyj1N5q4mzkR6fLidCTBz3g",null,null,"2ahUKEwj_p8nLspSYAxUGTWcHHQhgEq8Q8BcoAHoECAAQAQ","कसना"]],null,null,null,0,null,null,null,null,null,null,[1]]);
+      }
+      function onApiLoad() {
+        var embed = document.createElement('script');
+        embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/67/1b/init_embed.js";
+        document.body.appendChild(embed);
+      }
+    </script>
+    <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/67/1b/init_embed.js" nonce="6iXEIq8wPQvOQt_rt_FuMg" as="script" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmL18misQw9KdwqGaw3zHkitj8vG6QF2Y&amp;paint_origin=&amp;libraries=geometry,search&amp;v=weekly&amp;loading=async&amp;language=en&amp;region=in&amp;experimentation=allowed&amp;callback=onApiLoad" nonce="6iXEIq8wPQvOQt_rt_FuMg" async defer></script>
+  </body>
+</html>

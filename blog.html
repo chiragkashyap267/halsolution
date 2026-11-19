@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - HAL Solution Journal | Recycling & Scrap Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        hal: {
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
+                            400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
+                            800: '#155E75', 900: '#0A66C2', accent: '#FACC15'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; overflow-x: hidden; }
+        .tag-pill { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .tag-pill.active { transform: scale(1.05); }
+        .article-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(6,182,212,0.15); }
+        .article-card img { transition: transform 0.5s ease; }
+        .article-card:hover img { transform: scale(1.05); }
+        .newsletter-input:focus { box-shadow: 0 0 0 4px rgba(6,182,212,0.2); }
+    </style>
+</head>
+<body class="antialiased text-slate-800 pt-20">
+
+    <!-- FABs -->
+    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
+        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
+                    <div>
+                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
+                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
+                    </div>
+                </div>
+            </a>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
+                <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
+                <a href="rate-card.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Scrap Rates</a>
+                <a href="blog.html" class="text-hal-900 font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hal-500">Blog</a>
+                <a href="contact.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Contact</a>
+                <a href="terms.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Terms</a>
+
+                <!-- Ecosystem Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-hal-500 transition font-medium">Ecosystem <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition duration-300"></i></button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-2 z-50 transform origin-top group-hover:scale-100 scale-95">
+                        <a href="booking.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center"><i class="fas fa-calendar-check"></i></div><div><p class="font-bold text-slate-900 text-sm">Booking Engine</p><p class="text-xs text-slate-500">D2C Customer Flow</p></div></a>
+                        <a href="admin.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div><div><p class="font-bold text-slate-900 text-sm">Admin Control Center</p><p class="text-xs text-slate-500">Platform Oversight</p></div></a>
+                        <a href="executive.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-hal-100 text-hal-600 rounded-lg flex items-center justify-center"><i class="fas fa-mobile-alt"></i></div><div><p class="font-bold text-slate-900 text-sm">Executive App</p><p class="text-xs text-slate-500">Driver/Collector View</p></div></a>
+                        <a href="enterprise.html" class="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-xl transition"><div class="w-8 h-8 bg-emerald-50 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-building"></i></div><div><p class="font-bold text-slate-900 text-sm">Enterprise Portal</p><p class="text-xs text-slate-500">B2B ESG Analytics</p></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
+            <a href="index.html" class="hover:text-hal-500 transition">Home</a>
+            <a href="about.html" class="hover:text-hal-500 transition">About</a>
+            <a href="rate-card.html" class="hover:text-hal-500 transition">Scrap Rates</a>
+            <a href="blog.html" class="text-hal-500">Blog</a>
+            <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
+            <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 bg-gradient-to-b from-hal-50/60 to-white overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-10 left-10 w-72 h-72 bg-hal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div data-aos="fade-up" class="inline-flex items-center gap-2 bg-hal-100 text-hal-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fas fa-blog"></i> Our Blog
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                The HAL Solution <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-hal-500 to-hal-900">Journal</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto">
+                Insights on scrap collection, recycling &amp; sustainable business
+            </p>
+        </div>
+    </section>
+
+    <!-- Tag Filter Tabs -->
+    <section class="sticky top-20 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide" id="tag-filters">
+                <button class="tag-pill active whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-hal-500 text-white shadow-md" data-tag="all" onclick="filterArticles('all', this)">
+                    <i class="fas fa-th-large mr-1.5"></i>All articles
+                </button>
+                <button class="tag-pill whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-hal-100 hover:text-hal-700" data-tag="selling-scrap" onclick="filterArticles('selling-scrap', this)">
+                    <i class="fas fa-hand-holding-usd mr-1.5"></i>Selling scrap
+                </button>
+                <button class="tag-pill whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-hal-100 hover:text-hal-700" data-tag="scrap-rates" onclick="filterArticles('scrap-rates', this)">
+                    <i class="fas fa-chart-line mr-1.5"></i>Scrap rates
+                </button>
+                <button class="tag-pill whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-hal-100 hover:text-hal-700" data-tag="recycling" onclick="filterArticles('recycling', this)">
+                    <i class="fas fa-recycle mr-1.5"></i>Recycling
+                </button>
+                <button class="tag-pill whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-hal-100 hover:text-hal-700" data-tag="sustainable-living" onclick="filterArticles('sustainable-living', this)">
+                    <i class="fas fa-leaf mr-1.5"></i>Sustainable living
+                </button>
+                <button class="tag-pill whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-hal-100 hover:text-hal-700" data-tag="business" onclick="filterArticles('business', this)">
+                    <i class="fas fa-briefcase mr-1.5"></i>Business
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Grid -->
+    <section class="py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+
+                <!-- Card 1 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="0">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/unsplash_1532996122724-e3c354a0b15b_2.jpg" alt="Selling scrap online" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">How Does Selling Scrap Online Actually Work?</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Nov 5, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Discover the simple step-by-step process of turning your household scrap into real cash through HAL Solution's digital platform.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/unsplash_1605792657660-596af9009e82.jpg" alt="Brass and copper" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">Hidden Value at Home: Turn Old Brass and Copper into Cash</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Oct 28, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Old brass taps, copper wiring, and forgotten utensils in your home could be worth more than you think. Learn today's rates.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/unsplash_1585771724684-38269d6639fd.jpg" alt="Newspaper and cardboard" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">Newspaper, Books and Cardboard: What Your Raddi Is Actually Worth</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Oct 20, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Paper waste makes up a huge portion of household scrap. Find out the current rates for newspaper, books, and cardboard in your area.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="recycling" data-aos="fade-up" data-aos-delay="0">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/unsplash_1604187351574-c75ca79f5807_2.jpg" alt="Recycle plastic" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Recycling</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">Recycle Plastic, Don't Throw It</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Oct 12, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Plastic pollution is a growing crisis, but every bottle you recycle makes a difference. Here's how to sort and sell your plastic waste.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/clothes_replacement.jpg" alt="Sell old clothes" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">Can I Sell My Old Clothes Online?</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Oct 5, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Wondering what to do with clothes you no longer wear? Learn how to responsibly sell or recycle your old garments for cash.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/vehicle_scrap_replacement.jpg" alt="Scrapping old vehicle" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">A Simple Guide to Scrapping Your Old Bike or Car</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Sep 28, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Got a rusty old two-wheeler or car taking up space? Here's your complete guide to legally scrapping your vehicle and earning from it.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 7 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="0">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/aluminium_scrap_replacement.jpg" alt="Aluminium scrap" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">Aluminium Scrap Rate Today</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Sep 20, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Stay updated on the latest aluminium scrap prices. We break down the rates per kg and explain what affects market fluctuations.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 8 -->
+                <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="recycling" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-t-2xl">
+                        <img src="images/unsplash_1611284446314-60a58ac0deb9.jpg" alt="Circular economy" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Recycling</span>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-hal-600 transition">
+                            <a href="blog-post.html">The Circular Journey: From Scrap to Sustainable Manufacturing</a>
+                        </h3>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                            <span><i class="far fa-clock mr-1"></i>3 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i>Sep 12, 2026</span>
+                        </div>
+                        <p class="text-sm text-slate-500 line-clamp-2 mb-4">Follow the fascinating journey of scrap metal as it transforms from discarded waste into raw material for sustainable manufacturing.</p>
+                        <a href="blog-post.html" class="text-hal-600 text-sm font-semibold hover:text-hal-800 transition inline-flex items-center gap-1">Read more <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- No Results Message (hidden by default) -->
+            <div id="no-results" class="hidden text-center py-16">
+                <i class="fas fa-search text-5xl text-slate-300 mb-4"></i>
+                <p class="text-xl text-slate-500 font-semibold">No articles found in this category yet.</p>
+                <p class="text-slate-400 mt-2">Check back soon or browse all articles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-20 bg-gradient-to-br from-hal-800 to-hal-900 relative overflow-hidden" data-aos="fade-up">
+        <!-- Decorative circles -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-hal-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-hal-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/10 text-hal-200 px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+                <i class="fas fa-envelope"></i> Newsletter
+            </div>
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Stay updated with recycling insights</h2>
+            <p class="text-hal-200 mb-10 text-lg">Get the latest scrap rates, recycling tips, and sustainability stories delivered to your inbox.</p>
+
+            <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onsubmit="event.preventDefault(); subscribeNewsletter();">
+                <div class="flex-1 relative">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email address" class="newsletter-input w-full px-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-hal-300 font-medium outline-none transition-all duration-300 focus:bg-white/20 focus:border-hal-400" required>
+                </div>
+                <button type="submit" class="px-8 py-4 bg-hal-accent text-slate-900 rounded-xl font-bold hover:bg-yellow-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-lg whitespace-nowrap">
+                    <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                </button>
+            </form>
+            <p id="newsletter-success" class="hidden mt-4 text-emerald-300 font-semibold"><i class="fas fa-check-circle mr-1"></i> You're subscribed! Welcome aboard.</p>
+            <p class="text-hal-400 text-xs mt-4">No spam, unsubscribe anytime. We respect your inbox.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS + Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // Add blur to navbar on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) {
+                document.getElementById('navbar').classList.add('shadow-md');
+            } else {
+                document.getElementById('navbar').classList.remove('shadow-md');
+            }
+        });
+
+        // Tag filter logic
+        function filterArticles(tag, btn) {
+            // Update active pill
+            document.querySelectorAll('.tag-pill').forEach(pill => {
+                pill.classList.remove('active', 'bg-hal-500', 'text-white', 'shadow-md');
+                pill.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            btn.classList.add('active', 'bg-hal-500', 'text-white', 'shadow-md');
+            btn.classList.remove('bg-slate-100', 'text-slate-600');
+
+            const cards = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                if (tag === 'all' || card.dataset.tag === tag) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results
+            document.getElementById('no-results').classList.toggle('hidden', visibleCount > 0);
+
+            // Re-trigger AOS
+            AOS.refresh();
+        }
+
+        // Newsletter subscribe
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (email) {
+                document.getElementById('newsletter-success').classList.remove('hidden');
+                document.getElementById('newsletter-email').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

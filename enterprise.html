@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise ESG Portal - Hal Solution</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-slate-900 text-white h-20 flex items-center px-8 shrink-0 shadow-md">
+        <a href="index.html" class="flex items-center gap-3">
+            <i class="fas fa-recycle text-3xl text-emerald-400"></i>
+            <div><h2 class="font-black text-xl leading-tight tracking-wide">HAL<span class="font-light">ENTERPRISE</span></h2></div>
+        </a>
+        <div class="ml-auto flex items-center gap-6 text-sm font-bold">
+            <span class="text-slate-300 hover:text-white cursor-pointer transition">Reports</span>
+            <span class="text-slate-300 hover:text-white cursor-pointer transition">Invoices</span>
+            <div class="flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
+                <i class="fas fa-building text-emerald-400"></i> Tech Mahindra SEZ
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-8">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h1 class="text-3xl font-black text-slate-900 mb-1">Recycling Intelligence</h1>
+                <p class="text-slate-500 font-medium">Monthly ESG Impact & Operational Analytics for Tech Mahindra SEZ Campus.</p>
+            </div>
+            <button class="bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-bold shadow-md hover:bg-emerald-700 transition flex items-center gap-2"><i class="fas fa-download"></i> Download ESG Report</button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
+                <i class="fas fa-weight text-6xl text-slate-50 absolute -bottom-2 -right-2"></i>
+                <h3 class="text-slate-500 font-bold uppercase tracking-wider text-sm mb-2 relative z-10">Total Recycled (This Month)</h3>
+                <p class="text-4xl font-black text-slate-900 relative z-10">2,300 <span class="text-xl">kg</span></p>
+                <p class="text-emerald-500 font-bold text-sm mt-2 relative z-10"><i class="fas fa-arrow-up"></i> 12% vs last month</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
+                <i class="fas fa-tree text-6xl text-slate-50 absolute -bottom-2 -right-2"></i>
+                <h3 class="text-slate-500 font-bold uppercase tracking-wider text-sm mb-2 relative z-10">Trees Saved</h3>
+                <p class="text-4xl font-black text-emerald-600 relative z-10">38</p>
+                <p class="text-slate-400 font-bold text-sm mt-2 relative z-10">Equivalent environmental impact</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
+                <i class="fas fa-bolt text-6xl text-slate-50 absolute -bottom-2 -right-2"></i>
+                <h3 class="text-slate-500 font-bold uppercase tracking-wider text-sm mb-2 relative z-10">Energy Saved (kWh)</h3>
+                <p class="text-4xl font-black text-amber-500 relative z-10">9,450</p>
+                <p class="text-slate-400 font-bold text-sm mt-2 relative z-10">Equivalent environmental impact</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <!-- Material Breakdown -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h3 class="text-xl font-black text-slate-900 mb-6">Material Composition</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between font-bold mb-2"><span class="text-slate-700">Paper & Cardboard</span><span class="text-slate-900">42% (966 kg)</span></div>
+                        <div class="w-full bg-slate-100 rounded-full h-3"><div class="bg-blue-500 h-3 rounded-full" style="width: 42%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-bold mb-2"><span class="text-slate-700">E-Waste</span><span class="text-slate-900">25% (575 kg)</span></div>
+                        <div class="w-full bg-slate-100 rounded-full h-3"><div class="bg-emerald-500 h-3 rounded-full" style="width: 25%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-bold mb-2"><span class="text-slate-700">Plastic</span><span class="text-slate-900">21% (483 kg)</span></div>
+                        <div class="w-full bg-slate-100 rounded-full h-3"><div class="bg-amber-500 h-3 rounded-full" style="width: 21%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-bold mb-2"><span class="text-slate-700">Metals & Other</span><span class="text-slate-900">12% (276 kg)</span></div>
+                        <div class="w-full bg-slate-100 rounded-full h-3"><div class="bg-purple-500 h-3 rounded-full" style="width: 12%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Collections -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-black text-slate-900">Recent Collections</h3>
+                    <a href="#" class="text-emerald-600 font-bold text-sm hover:underline">View All Invoices</a>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-xl"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div><p class="font-bold text-slate-900">INV-2026-104</p><p class="text-sm text-slate-500">28 Aug 2026 • 840 kg collected</p></div>
+                        </div>
+                        <i class="fas fa-download text-slate-400 hover:text-emerald-600 transition"></i>
+                    </div>
+                    <div class="flex justify-between items-center p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-xl"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div><p class="font-bold text-slate-900">INV-2026-092</p><p class="text-sm text-slate-500">14 Aug 2026 • 620 kg collected</p></div>
+                        </div>
+                        <i class="fas fa-download text-slate-400 hover:text-emerald-600 transition"></i>
+                    </div>
+                    <div class="flex justify-between items-center p-4 border border-slate-100 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-xl"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div><p class="font-bold text-slate-900">INV-2026-085</p><p class="text-sm text-slate-500">01 Aug 2026 • 840 kg collected</p></div>
+                        </div>
+                        <i class="fas fa-download text-slate-400 hover:text-emerald-600 transition"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

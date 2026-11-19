@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Pickup - Hal Solution</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .step-content { display: none; }
+        .step-content.active { display: block; animation: fadeIn 0.4s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+    <!-- Header Minimal -->
+    <header class="bg-white shadow-sm h-20 flex items-center px-4 md:px-8 shrink-0">
+        <a href="index.html" class="flex items-center gap-2">
+            <i class="fas fa-recycle text-3xl text-hal-500"></i>
+            <div><h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2><h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2></div>
+        </a>
+        <div class="ml-auto flex gap-4 text-sm font-bold text-slate-400">
+            <span class="text-hal-600"><i class="fas fa-check-circle"></i> Secure Booking</span>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-3xl rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col md:flex-row">
+            
+            <!-- Progress Sidebar -->
+            <div class="bg-slate-900 text-white p-8 md:w-1/3 flex flex-col justify-center">
+                <h3 class="text-2xl font-black mb-8 text-hal-400">The Frictionless Journey</h3>
+                <div class="space-y-6 relative">
+                    <div class="absolute left-4 top-4 bottom-4 w-0.5 bg-slate-700 z-0"></div>
+                    <div class="relative z-10 flex items-center gap-4 text-hal-400 font-bold" id="nav-step-1">
+                        <div class="w-8 h-8 rounded-full bg-hal-500 text-white flex items-center justify-center border-4 border-slate-900"><i class="fas fa-box"></i></div> Select Scrap
+                    </div>
+                    <div class="relative z-10 flex items-center gap-4 text-slate-500 font-bold" id="nav-step-2">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border-4 border-slate-900"><i class="fas fa-map-marker-alt"></i></div> Location
+                    </div>
+                    <div class="relative z-10 flex items-center gap-4 text-slate-500 font-bold" id="nav-step-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border-4 border-slate-900"><i class="far fa-calendar-alt"></i></div> Date & Time
+                    </div>
+                    <div class="relative z-10 flex items-center gap-4 text-slate-500 font-bold" id="nav-step-4">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border-4 border-slate-900"><i class="fas fa-check"></i></div> Confirm
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steps Content -->
+            <div class="p-8 md:w-2/3">
+                <!-- STEP 1 -->
+                <div id="step-1" class="step-content active">
+                    <h2 class="text-2xl font-black text-slate-900 mb-2">What are you selling?</h2>
+                    <p class="text-slate-500 font-medium mb-6">Select the categories of scrap you want to sell.</p>
+                    
+                    <!-- Dynamic Calculator Estimate Banner -->
+                    <div id="booking-estimate-box" class="hidden mb-6 p-4 rounded-2xl bg-cyan-50 border border-cyan-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-black uppercase text-hal-800 tracking-wider flex items-center gap-1.5">
+                                <i class="fas fa-calculator text-hal-600"></i> Estimated Items from Calculator
+                            </span>
+                            <span class="text-sm font-black text-hal-900" id="estimate-box-total">₹0</span>
+                        </div>
+                        <div id="estimate-box-list" class="space-y-1 text-xs text-slate-600 font-medium"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="border-2 border-hal-500 bg-hal-50 rounded-xl p-4 text-center cursor-pointer transition hover:scale-105">
+                            <i class="fas fa-newspaper text-3xl text-hal-600 mb-2"></i><p class="font-bold text-slate-800">Paper</p>
+                        </div>
+                        <div class="border-2 border-slate-200 rounded-xl p-4 text-center cursor-pointer transition hover:border-hal-300 hover:bg-hal-50">
+                            <i class="fas fa-laptop-medical text-3xl text-slate-400 mb-2"></i><p class="font-bold text-slate-800">E-Waste</p>
+                        </div>
+                        <div class="border-2 border-slate-200 rounded-xl p-4 text-center cursor-pointer transition hover:border-hal-300 hover:bg-hal-50">
+                            <i class="fas fa-weight-hanging text-3xl text-slate-400 mb-2"></i><p class="font-bold text-slate-800">Metals</p>
+                        </div>
+                        <div class="border-2 border-slate-200 rounded-xl p-4 text-center cursor-pointer transition hover:border-hal-300 hover:bg-hal-50">
+                            <i class="fas fa-fan text-3xl text-slate-400 mb-2"></i><p class="font-bold text-slate-800">Appliances</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-hal-600 text-white font-bold py-4 rounded-xl hover:bg-hal-900 transition" onclick="nextStep(2)">Continue to Location <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+
+                <!-- STEP 2 -->
+                <div id="step-2" class="step-content">
+                    <h2 class="text-2xl font-black text-slate-900 mb-2">Where should we come?</h2>
+                    <p class="text-slate-500 font-medium mb-6">Add your address for the pickup.</p>
+                    <div class="bg-slate-100 rounded-xl h-40 mb-4 flex items-center justify-center text-slate-400 border border-slate-200 relative overflow-hidden">
+                        <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Map">
+                        <div class="bg-white px-4 py-2 rounded-full shadow-md z-10 font-bold text-hal-600 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Locating...</div>
+                    </div>
+                    <input type="text" value="Sector 62, Noida, UP 201309" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:border-hal-500 outline-none text-lg font-semibold bg-slate-50 mb-6" placeholder="Complete Address">
+                    <div class="flex gap-4">
+                        <button class="w-1/3 bg-slate-200 text-slate-700 font-bold py-4 rounded-xl hover:bg-slate-300 transition" onclick="nextStep(1)">Back</button>
+                        <button class="w-2/3 bg-hal-600 text-white font-bold py-4 rounded-xl hover:bg-hal-900 transition" onclick="nextStep(3)">Select Time <i class="fas fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div id="step-3" class="step-content">
+                    <h2 class="text-2xl font-black text-slate-900 mb-2">When should we come?</h2>
+                    <p class="text-slate-500 font-medium mb-6">Select a date and time slot.</p>
+                    <div class="flex gap-2 overflow-x-auto pb-4 mb-4">
+                        <div class="bg-hal-600 text-white min-w-[80px] text-center p-3 rounded-xl border border-hal-600 cursor-pointer shadow-md"><p class="text-xs font-bold uppercase opacity-80">Today</p><p class="text-xl font-black">15</p></div>
+                        <div class="bg-white text-slate-600 min-w-[80px] text-center p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-hal-300"><p class="text-xs font-bold uppercase opacity-80">Tomorrow</p><p class="text-xl font-black">16</p></div>
+                        <div class="bg-white text-slate-600 min-w-[80px] text-center p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-hal-300"><p class="text-xs font-bold uppercase opacity-80">Mon</p><p class="text-xl font-black">17</p></div>
+                        <div class="bg-white text-slate-600 min-w-[80px] text-center p-3 rounded-xl border border-slate-200 cursor-pointer hover:border-hal-300"><p class="text-xs font-bold uppercase opacity-80">Tue</p><p class="text-xl font-black">18</p></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <div class="bg-hal-50 border-2 border-hal-500 text-hal-700 font-bold text-center py-3 rounded-xl cursor-pointer">10:00 AM - 1:00 PM</div>
+                        <div class="bg-white border border-slate-200 text-slate-600 font-bold text-center py-3 rounded-xl cursor-pointer hover:bg-slate-50">2:00 PM - 5:00 PM</div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="w-1/3 bg-slate-200 text-slate-700 font-bold py-4 rounded-xl hover:bg-slate-300 transition" onclick="nextStep(2)">Back</button>
+                        <button class="w-2/3 bg-hal-600 text-white font-bold py-4 rounded-xl hover:bg-hal-900 transition" onclick="nextStep(4)">Confirm Booking <i class="fas fa-check ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 4 -->
+                <div id="step-4" class="step-content text-center py-8">
+                    <div class="w-24 h-24 mx-auto bg-green-100 text-green-500 rounded-full flex items-center justify-center text-5xl mb-6 shadow-sm"><i class="fas fa-check-circle"></i></div>
+                    <h2 class="text-3xl font-black text-slate-900 mb-2">Booking Confirmed!</h2>
+                    <p class="text-slate-500 font-medium mb-6">Our executive will reach your address on time.</p>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 text-left mb-8">
+                        <p class="font-bold text-slate-800 text-sm mb-2 uppercase tracking-wide">Order Summary</p>
+                        <p class="text-slate-600 mb-1" id="summary-phone-line"><i class="fas fa-phone w-5 text-hal-600"></i> Verified: <span id="summary-phone-val" class="font-bold">+91 9876543210</span></p>
+                        <p class="text-slate-600 mb-1"><i class="fas fa-calendar-alt w-5 text-hal-600"></i> Today, 10:00 AM - 1:00 PM</p>
+                        <p class="text-slate-600"><i class="fas fa-map-marker-alt w-5"></i> Sector 62, Noida</p>
+                    </div>
+                    <button class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            
+            // Update Sidebar colors
+            for(let i=1; i<=4; i++) {
+                let nav = document.getElementById('nav-step-' + i);
+                let icon = nav.querySelector('div');
+                if(i < step) {
+                    nav.className = "relative z-10 flex items-center gap-4 text-emerald-500 font-bold";
+                    icon.className = "w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center border-4 border-slate-900";
+                    icon.innerHTML = '<i class="fas fa-check"></i>';
+                } else if(i === step) {
+                    nav.className = "relative z-10 flex items-center gap-4 text-hal-400 font-bold";
+                    icon.className = "w-8 h-8 rounded-full bg-hal-500 text-white flex items-center justify-center border-4 border-slate-900";
+                } else {
+                    nav.className = "relative z-10 flex items-center gap-4 text-slate-500 font-bold";
+                    icon.className = "w-8 h-8 rounded-full bg-slate-800 text-slate-500 flex items-center justify-center border-4 border-slate-900";
+                }
+            }
+        }
+
+        // Category selection toggle
+        document.querySelectorAll('#step-1 .cursor-pointer').forEach(tile => {
+            tile.addEventListener('click', function() {
+                this.classList.toggle('border-hal-500');
+                this.classList.toggle('bg-hal-50');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('text-hal-600');
+                    icon.classList.toggle('text-slate-400');
+                }
+            });
+        });
+
+        // Load Phone from query string or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        const passedPhone = urlParams.get('phone') || localStorage.getItem('booking_phone');
+        if (passedPhone) {
+            const phoneEl = document.getElementById('summary-phone-val');
+            if (phoneEl) phoneEl.textContent = '+91 ' + passedPhone;
+        }
+
+        // Load Calculator Estimate
+        try {
+            const rawEstimate = localStorage.getItem('hal_estimate');
+            if (rawEstimate) {
+                const estimate = JSON.parse(rawEstimate);
+                const keys = Object.keys(estimate);
+                if (keys.length > 0) {
+                    const box = document.getElementById('booking-estimate-box');
+                    const list = document.getElementById('estimate-box-list');
+                    const totalEl = document.getElementById('estimate-box-total');
+                    
+                    let grandTotal = 0;
+                    list.innerHTML = '';
+                    
+                    keys.forEach(k => {
+                        const item = estimate[k];
+                        const subtotal = item.price * item.qty;
+                        grandTotal += subtotal;
+                        
+                        const row = document.createElement('div');
+                        row.className = 'flex justify-between items-center';
+                        row.innerHTML = `<span>• ${k} (${item.qty} ${item.unit})</span> <span class="font-bold text-slate-800">₹${subtotal.toLocaleString()}</span>`;
+                        list.appendChild(row);
+                    });
+                    
+                    totalEl.textContent = '₹' + grandTotal.toLocaleString();
+                    box.classList.remove('hidden');
+                }
+            }
+        } catch(e) {}
+    </script>
+</body>
+</html>
