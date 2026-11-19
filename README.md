@@ -10,6 +10,10 @@ Edit the root website files for future changes. The original ZIP files and extra
 
 ## Functionality
 
-Email/password accounts and persistent customer profiles are implemented with PHP sessions and MySQL. Configure the private database connection on Hostinger before enabling accounts. The old customer dashboard now forwards to the real profile page. Public Ecosystem links are commented out.
+Customer sign-in now uses an SMS OTP: verifying a mobile number creates or opens its account. Customers can select scrap, add an address or GPS pin, place a persistent pickup request, and view their orders in the profile. Existing email/password API accounts remain supported. Public Ecosystem links are commented out.
 
-OTP, email ownership verification, password-reset delivery, persistent bookings, callback delivery, and protected admin access still require integration. Admin/enterprise content is sample data, and location handling still includes a placeholder address. Customer profile phone numbers are not OTP-verified.
+Configure MSG91 SMS OTP before enabling live sign-in; see [PICKUP_SETUP.md](PICKUP_SETUP.md). After saving an order, customers can send its details to the business through a prefilled WhatsApp link and download a private printable receipt. The customer must tap Send in WhatsApp; no paid WhatsApp API is used and no automatic WhatsApp notification is sent.
+
+Change the business phone in one place: `business-config.json`. Public call/WhatsApp links, order sharing and receipts use this value. The supplied brand image is `images/logo.png`. Business content is sourced from the existing website; see [BUSINESS_DETAILS.md](BUSINESS_DETAILS.md).
+
+Email ownership verification, password-reset delivery, callback delivery, and protected admin access still require integration. Admin/enterprise content is sample data. The contact-page location flow still includes a placeholder address; the new booking flow does not fabricate an address.

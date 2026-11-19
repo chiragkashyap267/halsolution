@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script src="business.js?v=1" defer></script>
+    <script src="order-actions.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your account | HAL Solution</title>
@@ -130,25 +132,17 @@
         .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
         .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="account.js?v=4" defer></script>
 </head>
 <body class="page-profile antialiased text-slate-800 pt-20">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -179,7 +173,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
@@ -210,7 +204,7 @@
                     <fieldset id="profile-fields" class="profile-fields" disabled>
                         <legend class="sr-only">Contact and pickup details</legend>
                         <div><label for="profile-full-name">Full name</label><input class="account-input" id="profile-full-name" name="name" autocomplete="name" maxlength="150" required></div>
-                        <div><label for="profile-mobile">Mobile number</label><input class="account-input" id="profile-mobile" name="phone" type="tel" autocomplete="tel" placeholder="Your 10-digit mobile number" maxlength="20"><small>Optional. For pickup coordination.</small></div>
+                        <div><label for="profile-mobile">Mobile number</label><input class="account-input" id="profile-mobile" name="phone" type="tel" autocomplete="tel" placeholder="Your 10-digit mobile number" maxlength="20"><small>A verified mobile can only be changed by verifying a new number on the booking page.</small></div>
                         <div class="full-width"><label for="profile-account-email">Account email</label><input class="account-input" id="profile-account-email" name="email" type="email" readonly></div>
                         <div class="full-width"><label for="profile-address">Pickup address</label><textarea class="account-input" id="profile-address" name="address" autocomplete="street-address" maxlength="500" rows="3" placeholder="House or flat number, street, and area"></textarea></div>
                         <div><label for="profile-city">City</label><input class="account-input" id="profile-city" name="city" autocomplete="address-level2" maxlength="100"></div>
@@ -218,6 +212,7 @@
                     </fieldset>
                     <div class="profile-save"><span>Update your details, then select Save.</span><button type="submit" class="account-primary" disabled>Save details</button></div>
                 </form>
+                <section class="order-history" aria-label="Your pickup orders"><h2 class="profile-title">Your pickups</h2><p id="orders-status" class="account-status" role="status">Loading orders...</p><div id="orders-list"></div></section>
             </section>
         </div>
     </main>

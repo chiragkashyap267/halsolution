@@ -7,4 +7,8 @@ return [
     'database' => 'YOUR_DATABASE_NAME',
     'username' => 'YOUR_DATABASE_USER',
     'password' => 'YOUR_DATABASE_PASSWORD',
+    // Optional: enable SMS verification only after adding real provider credentials.
+    'otp_authkey' => '',
+    'otp_template_id' => '',
+    'otp_daily_limit' => 100,
 ];

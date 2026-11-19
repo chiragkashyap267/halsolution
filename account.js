@@ -33,9 +33,38 @@
         if (user && profileForm) {
             for (const key of ['name', 'email', 'phone', 'address', 'city', 'pincode']) profileForm.elements.namedItem(key).value = user[key] || '';
             document.getElementById('profile-name').textContent = user.name;
-            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('profile-email').textContent = user.email || user.phone || '';
             document.getElementById('profile-avatar').textContent = user.name.trim().split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase();
         }
+    }
+    async function loadOrders() {
+        const list = document.getElementById('orders-list');
+        const state = document.getElementById('orders-status');
+        if (!list) return;
+        try {
+            const response = await fetch('api/pickup.php?action=orders', {credentials: 'same-origin', cache: 'no-store'});
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error || 'Unable to load orders.');
+            list.replaceChildren();
+            state.textContent = result.orders.length ? '' : 'No pickups yet. Schedule your first pickup when you are ready.';
+            for (const order of result.orders) {
+                const card = document.createElement('article'); card.className = 'pickup-order';
+                const title = document.createElement('h3'); title.textContent = `${order.reference} · ${order.status}`;
+                const items = document.createElement('p'); items.textContent = order.items.map(item => item.name).join(', ');
+                const location = [order.address, order.city, order.pincode].filter(Boolean).join(', ')
+                    || (order.latitude !== null ? `GPS pin: ${order.latitude}, ${order.longitude}` : '');
+                const details = document.createElement('p'); details.textContent = `${order.date || 'Next available day'} · ${order.slot} · ${location}`;
+                const actions = document.createElement('div'); actions.className = 'order-actions';
+                const receipt = document.createElement('a'); receipt.href = `api/receipt.php?reference=${encodeURIComponent(order.reference)}`; receipt.textContent = 'Download receipt';
+                actions.append(receipt);
+                try {
+                    const links = await window.HALOrderActions(order);
+                    const whatsapp = document.createElement('a'); whatsapp.href = links.whatsapp; whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer'; whatsapp.textContent = 'Send order on WhatsApp';
+                    actions.prepend(whatsapp);
+                } catch { /* Receipt and saved order stay accessible if contact settings fail. */ }
+                card.append(title, items, details, actions); list.append(card);
+            }
+        } catch (error) { state.textContent = error.message; }
     }
     document.querySelectorAll('[data-auth-mode]').forEach(button => button.addEventListener('click', () => {
         const mode = button.dataset.authMode;
@@ -95,6 +124,7 @@
             if (profileForm) {
                 document.getElementById('profile-fields').disabled = false;
                 profileForm.querySelector('[type="submit"]').disabled = false;
+                loadOrders();
             }
             message(new URLSearchParams(location.search).has('signedout') ? 'You have been signed out.' : '');
         } catch (error) { message(error.message, 'error'); }
@@ -115,6 +145,7 @@
         document.getElementById('profile-name').textContent = 'Your account';
         document.getElementById('profile-email').textContent = '';
         document.getElementById('profile-avatar').textContent = '';
+        document.getElementById('orders-list')?.replaceChildren();
     });
     refreshSession();
 })();

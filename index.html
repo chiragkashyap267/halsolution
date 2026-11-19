@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script src="business.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hal Solution - Sell Recyclables Online!</title>
@@ -130,10 +131,10 @@
         .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
         .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="account.js?v=4" defer></script>
 </head>
 <body class="page-index has-floating-actions antialiased text-slate-800 pt-20">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -148,22 +149,14 @@
     <!-- FABs -->
     <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
-        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+        <a href="contact.html" data-business-link="whatsapp" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="contact.html" data-business-link="call" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -194,7 +187,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
@@ -241,7 +234,7 @@
                     <div class="border border-white/60 rounded-[2.5rem] p-1.5 bg-white/80 shadow-inner">
                         <div class="flex items-center rounded-full overflow-hidden bg-white px-2 h-16">
                             <span class="text-slate-400 font-bold pl-4 pr-3 border-r border-slate-200 text-lg">+91</span>
-                            <input type="tel" id="hero-mobile-input" aria-label="Mobile number for pickup" inputmode="tel" autocomplete="tel-national" class="w-full h-full px-4 outline-none text-xl text-slate-700 placeholder-slate-300 font-medium bg-transparent" placeholder="Enter mobile number" maxlength="10">
+                            <input type="tel" id="hero-mobile-input" aria-label="Mobile number for pickup" inputmode="tel" autocomplete="tel-national" class="w-full h-full px-4 outline-none text-xl text-slate-700 placeholder-slate-300 font-medium bg-transparent" placeholder="Mobile number" maxlength="10">
                             <button onclick="startBookingFromHero()" class="btn-glow h-12 px-8 rounded-full bg-gradient-to-r from-hal-700 to-hal-500 text-white font-bold tracking-wide flex items-center justify-center flex-shrink-0 transition duration-300 mr-1 bg-[length:200%_auto] animate-shine">
                                 Go <i class="fas fa-arrow-right ml-2"></i>
                             </button>
@@ -359,7 +352,7 @@
                 <!-- Controls (7 cols) -->
                 <div class="lg:col-span-7 space-y-6">
                     <div>
-                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-200 mb-2">Select Scrap Item</label>
+                        <label for="hp-calc-item" class="block text-xs font-black uppercase tracking-wider text-cyan-200 mb-2">Select Scrap Item</label>
                         <select id="hp-calc-item" aria-label="Scrap item" onchange="onHpCalcChange()"
                                 class="w-full bg-slate-800/90 text-white border border-white/20 rounded-2xl p-4 font-bold text-base shadow-lg outline-none cursor-pointer focus:ring-2 focus:ring-cyan-400">
                             <option value="11,kg" selected>Newspaper (Raddi) — ₹11 /kg</option>
@@ -489,23 +482,23 @@
     </section>
 
     <!-- 3. Infinite Scrolling Marquee (Media Recognitions) -->
-    <section class="py-16 border-y border-slate-100 bg-white overflow-hidden relative z-10">
+    <section id="media-recognition" class="py-16 border-y border-slate-100 bg-white overflow-hidden relative z-10">
         <h2 data-aos="fade-up" class="text-center text-sm font-bold text-slate-400 tracking-widest uppercase mb-10">Recognized By Top Media</h2>
         <div class="marquee-wrapper">
-            <div class="flex animate-marquee gap-8 items-center w-[200%]">
+            <div class="media-track flex animate-marquee gap-8 items-center w-[200%]">
                 <!-- Set 1 -->
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
+                <div class="media-card bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
+                <div class="media-card bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
+                <div class="media-card bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
+                <div class="media-card bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
+                <div class="media-card bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
                 
                 <!-- Set 2 (Duplicate for infinite loop) -->
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
-                <div class="bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
+                <div aria-hidden="true" class="media-card media-duplicate bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif font-bold text-2xl text-slate-800">Forbes</h3></div>
+                <div aria-hidden="true" class="media-card media-duplicate bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-xl text-blue-700 leading-tight text-center">the<br>better<br>india</h3></div>
+                <div aria-hidden="true" class="media-card media-duplicate bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-black text-2xl text-red-600">Aaj Tak</h3></div>
+                <div aria-hidden="true" class="media-card media-duplicate bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-serif italic font-bold text-xl text-red-700">Indian Express</h3></div>
+                <div aria-hidden="true" class="media-card media-duplicate bg-white border border-slate-100 shadow-sm rounded-xl px-8 py-5 flex items-center justify-center h-20 hover:shadow-md transition"><h3 class="font-sans font-black text-2xl text-red-600">YOURSTORY</h3></div>
             </div>
         </div>
     </section>
@@ -562,16 +555,16 @@
     </section>
 
     <!-- 5. Recyclables we pick -->
-    <section class="py-24 bg-grid relative z-10 border-b border-slate-100 bg-white">
+    <section id="recyclables" class="recyclables-section py-24 bg-grid relative z-10 border-b border-slate-100 bg-white">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-5xl font-black text-slate-900 mb-4 tracking-tight">Recyclables we pick</h2>
             <p class="text-slate-500 font-bold text-lg">Paper | Plastic | Metals | E-Waste | Appliances & More</p>
         </div>
 
-        <div class="relative max-w-4xl mx-auto h-[500px] flex items-center justify-center">
+        <div class="recyclables-visual relative max-w-4xl mx-auto h-[500px] flex items-center justify-center">
             
             <!-- Central Cluster Image Creative -->
-            <div data-aos="zoom-in" data-aos-duration="1000" class="relative w-80 h-80 bg-white rounded-full shadow-[0_0_50px_rgba(6,182,212,0.2)] z-10 border-8 border-hal-50 p-2 overflow-hidden group">
+            <div data-aos="zoom-in" data-aos-duration="1000" class="recyclables-image relative w-80 h-80 bg-white rounded-full shadow-[0_0_50px_rgba(6,182,212,0.2)] z-10 border-8 border-hal-50 p-2 overflow-hidden group">
                 <img src="images/unsplash_1604187351574-c75ca79f5807.jpg" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-700" alt="Recyclables Creative" decoding="async" loading="lazy">
                 <div class="absolute inset-0 rounded-full bg-hal-500 mix-blend-color opacity-20"></div>
             </div>
@@ -897,20 +890,20 @@
                     <div class="text-hal-50 text-base md:text-lg space-y-3 font-medium">
                         <p><strong class="text-white text-xl">Tarun Gaur</strong>, Founder & Mgmt</p>
                         <p class="flex items-center gap-3"><i class="fas fa-envelope text-hal-300"></i> <a href="mailto:info@halsolution.com" class="hover:text-white transition">info@halsolution.com</a></p>
-                        <p class="flex items-center gap-3"><i class="fas fa-phone-alt text-hal-300"></i> +91 8851 644 415</p>
-                        <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-hal-300 mt-1"></i> <span>Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, 201308.</span></p>
+                        <p class="flex items-center gap-3"><i class="fas fa-phone-alt text-hal-300"></i> <a href="contact.html" data-business-link="call"><span data-business-number>Contact us</span></a></p>
+                        <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-hal-300 mt-1"></i> <span>K-58, Site V, UPSIDC, Greater Noida, Uttar Pradesh 201308.</span></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <a href="index.html" class="footer-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <div class="flex justify-center gap-6 mb-10">
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 

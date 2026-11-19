@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script src="business.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - HAL Solution Journal | Recycling & Scrap Insights</title>
@@ -34,10 +35,10 @@
         .article-card:hover img { transform: scale(1.05); }
         .newsletter-input:focus { box-shadow: 0 0 0 4px rgba(6,182,212,0.2); }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="account.js?v=4" defer></script>
 </head>
 <body class="page-blog has-floating-actions antialiased text-slate-800 pt-20">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -45,22 +46,14 @@
     <!-- FABs -->
     <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
-        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+        <a href="contact.html" data-business-link="whatsapp" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="contact.html" data-business-link="call" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -91,7 +84,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
@@ -126,7 +119,7 @@
     </section>
 
     <!-- Tag Filter Tabs -->
-    <section class="sticky top-20 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4">
+    <section class="blog-filter-bar sticky top-20 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide" id="tag-filters">
                 <button class="tag-pill active whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-semibold bg-hal-500 text-white shadow-md" data-tag="all" onclick="filterArticles('all', this)">
@@ -348,13 +341,13 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-16 relative z-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <a href="index.html" class="footer-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <div class="flex justify-center gap-6 mb-10">
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 

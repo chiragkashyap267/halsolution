@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script src="business.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Hal Solution</title>
@@ -51,10 +52,10 @@
             transform: scale(1.05);
         }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="account.js?v=4" defer></script>
 </head>
 <body class="page-contact has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -62,22 +63,14 @@
     <!-- FABs -->
     <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
-        <a href="https://wa.me/918851644415" target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+918851644415" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
+        <a href="contact.html" data-business-link="whatsapp" target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
+        <a href="contact.html" data-business-link="call" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -108,7 +101,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
@@ -163,7 +156,7 @@
             <div class="text-center md:text-left">
                 <h3 class="text-xl font-bold text-slate-900">Support Hours</h3>
                 <p class="text-slate-500 font-medium">8:30 AM – 7:30 PM, all days</p>
-                <p class="text-sm text-hal-600 font-semibold mt-1"><i class="fas fa-circle text-[8px] text-green-500 mr-2 animate-pulse"></i>We're currently available</p>
+                <p class="text-sm text-hal-600 font-semibold mt-1">Call or WhatsApp our team</p>
             </div>
         </div>
     </section>
@@ -193,8 +186,8 @@
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 mb-1">WhatsApp</h3>
                 <p class="text-sm text-slate-400 mb-4">Fastest way to reach us — instant replies</p>
-                <a href="https://wa.me/918851644415" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-xl font-bold hover:bg-green-600 transition">
-                    <i class="fab fa-whatsapp text-lg"></i> +91 8851 644 415
+                <a href="contact.html" data-business-link="whatsapp" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-xl font-bold hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp text-lg"></i> <span data-business-number>Contact us</span>
                 </a>
             </div>
 
@@ -210,12 +203,12 @@
                 </button>
             </div>
 
-            <!-- Registered Address -->
+            <!-- Office Address -->
             <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-2xl shadow-md border border-slate-100 p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
                 <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500 text-2xl mb-5 group-hover:scale-110 transition-transform">
                     <i class="fas fa-building"></i>
                 </div>
-                <h3 class="text-lg font-bold text-slate-900 mb-1">Registered Address</h3>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Office Address</h3>
                 <p class="text-sm text-slate-400 mb-3">Corporate Office</p>
                 <p class="text-slate-600 font-medium leading-relaxed">
                     Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
@@ -293,7 +286,7 @@
                         <span class="inline-flex items-center px-4 rounded-l-xl border-2 border-r-0 border-slate-200 bg-slate-50 text-slate-600 font-bold text-sm">
                             <img src="images/in.png.png" alt="IN" class="mr-2 rounded-sm" decoding="async" loading="lazy"> +91
                         </span>
-                        <input type="tel" id="cb-phone" placeholder="8851 644 415" class="w-full px-4 py-3 rounded-r-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400" maxlength="10">
+                        <input type="tel" id="cb-phone" placeholder="Your mobile number" class="w-full px-4 py-3 rounded-r-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400" maxlength="10">
                     </div>
                 </div>
 
@@ -343,7 +336,7 @@
                 <div class="w-16 h-16 shrink-0 rounded-2xl bg-hal-50 text-hal-600 flex items-center justify-center text-3xl"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                 <div class="space-y-4">
                     <h3 class="text-xl font-bold text-slate-900">Visit HAL Solution</h3>
-                    <p class="text-slate-600 leading-relaxed">Plot No. K-58, Site V, UPSIDC Kasna Industrial Area, Greater Noida, 201308.</p>
+                    <p class="text-slate-600 leading-relaxed">K-58, Site V, UPSIDC, Greater Noida, Uttar Pradesh 201308.</p>
                     <a href="https://www.google.com/maps/search/?api=1&amp;query=Plot+K-58+Site+V+UPSIDC+Kasna+Industrial+Area+Greater+Noida+201308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-11 bg-hal-600 text-white font-bold px-5 py-3 rounded-xl hover:bg-hal-700 transition">View on Google Maps</a>
                 </div>
             </div>
@@ -354,13 +347,13 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-16 relative z-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black mb-8"><span class="text-hal-500">HAL</span> SOLUTION</h2>
+            <a href="index.html" class="footer-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <div class="flex justify-center gap-6 mb-10">
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 

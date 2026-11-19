@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="business.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Hal Solution</title>
@@ -19,10 +20,10 @@
         }
     </script>
 
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="account.js?v=4" defer></script>
 </head>
 <body class="page-about has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -30,23 +31,15 @@
     <!-- Right Fixed Floating Action Buttons (FAB) -->
     <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-share-alt"></i></a>
-        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-phone-alt"></i></a>
+        <a href="contact.html" data-business-link="whatsapp" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+        <a href="contact.html" data-business-link="call" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -78,7 +71,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white z-[200] transform translate-x-full transition-transform duration-300 flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-2xl text-slate-500 hover:text-red-500" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-5 font-bold text-lg text-slate-700">
@@ -108,7 +101,7 @@
 
         <section class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-slate-100 mb-12">
             <h2 class="text-2xl font-bold text-slate-900 mb-4">Who We Are 👋</h2>
-            <p class="text-slate-600 text-lg leading-relaxed mb-6">Hal Solution is a technology-driven waste management platform that connects individuals and businesses with verified scrap collectors. Our mission is to make recycling easy, transparent, and environmentally impactful.</p>
+            <p class="text-slate-600 text-lg leading-relaxed mb-6">Hal Solution Private Limited is an electronics recycling company based in Site V, Greater Noida, Uttar Pradesh. We help households, businesses and organizations manage end-of-life electronics through collection, recycling and refurbishment.</p>
             <p class="text-slate-600 text-lg leading-relaxed">Whether it's your old newspapers 📰, electronics 💻, metals ⚙️, or plastics 🥤 — we ensure everything gets responsibly recycled and never ends up in landfills.</p>
         </section>
 
@@ -135,13 +128,13 @@
     <!-- Footer -->
     <footer class="bg-slate-50 border-t border-slate-200 py-12 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">HAL SOLUTION</h2>
+            <a href="index.html" class="footer-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <div class="flex justify-center gap-6 mb-8">
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-hal-500 hover:text-white transition"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="text-slate-500 text-sm">© 2026 Hal Solutions Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 

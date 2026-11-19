@@ -62,8 +62,8 @@
     });
 
     document.querySelectorAll('.floating-actions a').forEach(link => {
-        if (link.querySelector('.fa-phone-alt')) { link.href = 'tel:+918851644415'; link.setAttribute('aria-label', 'Call HAL Solution'); }
-        if (link.querySelector('.fa-whatsapp')) { link.href = 'https://wa.me/918851644415'; link.setAttribute('aria-label', 'Chat on WhatsApp'); }
+        if (link.querySelector('.fa-phone-alt')) link.setAttribute('aria-label', 'Call HAL Solution');
+        if (link.querySelector('.fa-whatsapp')) link.setAttribute('aria-label', 'Chat on WhatsApp');
         if (link.querySelector('.fa-share-alt')) {
             link.setAttribute('aria-label', 'Share this page');
             link.setAttribute('role', 'button');

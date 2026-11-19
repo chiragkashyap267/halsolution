@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <script src="business.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in | HAL Solution</title>
@@ -130,25 +131,17 @@
         .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
         .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
     </style>
-    <link rel="stylesheet" href="responsive.css?v=3">
-    <script src="site.js?v=3" defer></script>
-    <link rel="stylesheet" href="account.css?v=1">
-    <script src="account.js?v=1" defer></script>
+    <link rel="stylesheet" href="responsive.css?v=4">
+    <script src="site.js?v=4" defer></script>
+    <link rel="stylesheet" href="account.css?v=4">
+    <script src="booking.js?v=3" defer></script>
 </head>
 <body class="page-login antialiased text-slate-800 pt-20">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Header -->
     <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
-                    <div>
-                        <h2 class="text-hal-900 font-black text-xl leading-tight">HAL</h2>
-                        <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
-                    </div>
-                </div>
-            </a>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <a href="login.html" data-account-link class="account-mobile-icon" aria-label="Log in or create an account"><i class="fas fa-user" aria-hidden="true"></i></a>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -179,7 +172,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
+            <a href="index.html" class="site-brand" aria-label="HAL Solution home"><img src="images/logo.png" alt="HAL Solution Pvt. Ltd." class="site-logo" width="780" height="238" decoding="async"></a>
             <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
@@ -206,23 +199,23 @@
                 </ul>
             </section>
             <section class="account-card" aria-label="Account sign in">
-                <div class="account-tabs" role="group" aria-label="Account options">
-                    <button type="button" data-auth-mode="login" aria-pressed="true" aria-controls="login-form">Sign in</button>
-                    <button type="button" data-auth-mode="register" aria-pressed="false" aria-controls="register-form">Create account</button>
-                </div>
-                <p id="account-status" class="account-status" role="status" aria-live="polite">Connecting to your account?</p>
-                <form id="login-form" data-auth-form="login" class="account-form">
-                    <div><label for="login-email">Email address</label><input class="account-input" id="login-email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="you@example.com" required></div>
-                    <div><label for="login-password">Password</label><div class="account-password"><input class="account-input" id="login-password" name="password" type="password" autocomplete="current-password" minlength="10" maxlength="72" required><button type="button" data-show-password="login-password" aria-label="Show or hide password" aria-pressed="false">Show</button></div></div>
-                    <button class="account-primary" type="submit" disabled>Sign in</button>
-                </form>
-                <form id="register-form" data-auth-form="register" class="account-form" hidden>
-                    <div><label for="register-name">Full name</label><input class="account-input" id="register-name" name="name" autocomplete="name" maxlength="150" required></div>
-                    <div><label for="register-email">Email address</label><input class="account-input" id="register-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required></div>
-                    <div><label for="register-password">Create a password</label><div class="account-password"><input class="account-input" id="register-password" name="password" type="password" autocomplete="new-password" minlength="10" maxlength="72" aria-describedby="password-help" required><button type="button" data-show-password="register-password" aria-label="Show or hide password" aria-pressed="false">Show</button></div><small id="password-help">Use at least 10 characters. Choose a password you don't use elsewhere.</small></div>
-                    <button class="account-primary" type="submit" disabled>Create account</button>
-                </form>
-                <p class="account-note">By continuing, you agree to our <a href="terms.html">Terms</a>.<br>Need help signing in? <a href="contact.html">Contact us</a>.</p>
+<p id="pickup-status" class="account-status" role="status" aria-live="polite">Connecting...</p>
+<section id="pickup-auth" aria-label="Verify your mobile">
+    <h2 class="profile-title">Your number. Your account.</h2>
+    <p class="profile-description">Enter your mobile number. Verify the SMS code to sign in or create your customer account.</p>
+    <p id="otp-setup-note" class="account-status">SMS OTP setup is pending. For a pickup, <a href="contact.html" data-business-link="whatsapp" target="_blank" rel="noopener noreferrer">contact us on WhatsApp</a>.</p>
+    <form id="phone-form" class="account-form">
+        <div><label for="pickup-phone">Indian mobile number</label><input id="pickup-phone" class="account-input" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" pattern="(?:\+91)?[6-9][0-9]{9}" maxlength="13" placeholder="10-digit mobile number" required></div>
+        <button class="account-primary" type="submit" disabled>Send OTP</button>
+    </form>
+    <form id="otp-form" class="account-form" hidden>
+        <p>Code sent to <strong id="otp-number"></strong></p>
+        <div><label for="pickup-code">6-digit OTP</label><input id="pickup-code" class="account-input" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required><small>Valid for 5 minutes. Never share this code.</small></div>
+        <button class="account-primary" type="submit">Verify &amp; continue</button>
+        <div class="otp-actions"><button type="button" id="resend-otp" disabled>Resend OTP</button><button type="button" id="change-number">Change number</button></div>
+    </form>
+    <p class="account-note">By continuing, you agree to our <a href="terms.html">Terms</a>.</p>
+</section>
             </section>
         </div>
     </main>

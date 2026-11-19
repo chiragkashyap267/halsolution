@@ -1,3 +1,11 @@
+# Current revamp update
+
+Mobile floating contact overlays are removed. Blog filter buttons no longer shrink into overlapping labels. Media cards use a static mobile grid; recyclables labels sit below the image on phones. Mobile entrance transforms are disabled to prevent layout overflow. The supplied `images/logo.png` replaces placeholder branding. Public contact links use `business-config.json`.
+
+Phone OTP, saved pickups, customer history, free customer-initiated WhatsApp order sharing and private printable receipts are implemented. See `PICKUP_SETUP.md` and `BUSINESS_DETAILS.md`. Paid automatic WhatsApp notifications have been removed at the owner's request. SMS provider credentials and live deployment are still required.
+
+The historical review below predates these changes. Its OTP, booking persistence, fixed mobile contact bar and browser-unavailable statements are superseded. Protected admin access, callback/newsletter delivery and contact-page location limitations remain.
+
 # HAL Solution website review
 
 Account update: email/password sign-in and a persistent PHP/MySQL customer profile have now been added; see `ACCOUNT_SETUP.md`. The Hostinger database must still be configured before real accounts can be saved. Ecosystem navigation is commented out. The original review below describes the preceding frontend-only version; its customer-login limitation is superseded by this update, while OTP, admin authorization, and booking limitations remain.
