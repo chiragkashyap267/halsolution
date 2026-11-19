@@ -17,7 +17,7 @@
                         hal: {
                             50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
                             400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
-                            800: '#155E75', 900: '#0A66C2', accent: '#FACC15'
+                            800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15'
                         }
                     }
                 }
@@ -34,18 +34,21 @@
         .article-card:hover img { transform: scale(1.05); }
         .newsletter-input:focus { box-shadow: 0 0 0 4px rgba(6,182,212,0.2); }
     </style>
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="antialiased text-slate-800 pt-20">
+<body class="page-blog has-floating-actions antialiased text-slate-800 pt-20">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- FABs -->
-    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+    <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
         <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+    <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <div class="flex items-center gap-2">
@@ -56,7 +59,7 @@
                     </div>
                 </div>
             </a>
-            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
                 <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
                 <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
@@ -80,10 +83,10 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
-            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
             <a href="index.html" class="hover:text-hal-500 transition">Home</a>
@@ -92,11 +95,12 @@
             <a href="blog.html" class="text-hal-500">Blog</a>
             <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
             <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <a href="booking.html" class="text-hal-600">Book a pickup</a>
         </nav>
     </div>
 
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-16 bg-gradient-to-b from-hal-50/60 to-white overflow-hidden">
+    <section class="relative pt-20 pb-16 bg-gradient-to-b from-hal-50/60 to-white overflow-hidden" id="main-content" tabindex="-1">
         <!-- Decorative Elements -->
         <div class="absolute top-10 left-10 w-72 h-72 bg-hal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
         <div class="absolute bottom-10 right-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
@@ -148,7 +152,7 @@
                 <!-- Card 1 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="0">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/unsplash_1532996122724-e3c354a0b15b_2.jpg" alt="Selling scrap online" class="w-full h-52 object-cover">
+                        <img src="images/unsplash_1532996122724-e3c354a0b15b_2.jpg" alt="Selling scrap online" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
@@ -167,7 +171,7 @@
                 <!-- Card 2 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="100">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/unsplash_1605792657660-596af9009e82.jpg" alt="Brass and copper" class="w-full h-52 object-cover">
+                        <img src="images/unsplash_1605792657660-596af9009e82.jpg" alt="Brass and copper" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
@@ -186,7 +190,7 @@
                 <!-- Card 3 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="200">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/unsplash_1585771724684-38269d6639fd.jpg" alt="Newspaper and cardboard" class="w-full h-52 object-cover">
+                        <img src="images/unsplash_1585771724684-38269d6639fd.jpg" alt="Newspaper and cardboard" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
@@ -205,7 +209,7 @@
                 <!-- Card 4 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="recycling" data-aos="fade-up" data-aos-delay="0">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/unsplash_1604187351574-c75ca79f5807_2.jpg" alt="Recycle plastic" class="w-full h-52 object-cover">
+                        <img src="images/unsplash_1604187351574-c75ca79f5807_2.jpg" alt="Recycle plastic" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Recycling</span>
@@ -224,7 +228,7 @@
                 <!-- Card 5 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="100">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/clothes_replacement.jpg" alt="Sell old clothes" class="w-full h-52 object-cover">
+                        <img src="images/clothes_replacement.jpg" alt="Sell old clothes" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
@@ -243,7 +247,7 @@
                 <!-- Card 6 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="selling-scrap" data-aos="fade-up" data-aos-delay="200">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/vehicle_scrap_replacement.jpg" alt="Scrapping old vehicle" class="w-full h-52 object-cover">
+                        <img src="images/vehicle_scrap_replacement.jpg" alt="Scrapping old vehicle" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Selling scrap</span>
@@ -262,7 +266,7 @@
                 <!-- Card 7 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="scrap-rates" data-aos="fade-up" data-aos-delay="0">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/aluminium_scrap_replacement.jpg" alt="Aluminium scrap" class="w-full h-52 object-cover">
+                        <img src="images/aluminium_scrap_replacement.jpg" alt="Aluminium scrap" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Scrap rates</span>
@@ -281,7 +285,7 @@
                 <!-- Card 8 -->
                 <article class="article-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" data-tag="recycling" data-aos="fade-up" data-aos-delay="100">
                     <div class="overflow-hidden rounded-t-2xl">
-                        <img src="images/unsplash_1611284446314-60a58ac0deb9.jpg" alt="Circular economy" class="w-full h-52 object-cover">
+                        <img src="images/unsplash_1611284446314-60a58ac0deb9.jpg" alt="Circular economy" class="w-full h-52 object-cover" decoding="async" loading="lazy">
                     </div>
                     <div class="p-6">
                         <span class="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-3">Recycling</span>
@@ -404,5 +408,6 @@
             }
         }
     </script>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

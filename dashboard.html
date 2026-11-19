@@ -13,24 +13,27 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'], hand: ['Caveat', 'cursive'] },
-                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15' } }
                 }
             }
         }
     </script>
 
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="antialiased text-slate-800 pt-20 bg-slate-50">
+<body class="page-dashboard has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     
     <!-- Right Fixed Floating Action Buttons (FAB) -->
-    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+    <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-share-alt"></i></a>
         <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Custom Header for logged-in Dashboard state -->
-    <header class="fixed top-0 left-0 w-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] z-40">
+    <header class="site-header fixed top-0 left-0 w-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
                 <div class="flex items-center gap-2">
@@ -41,6 +44,7 @@
                     </div>
                 </div>
             </a>
+            <button type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-2xl text-slate-700 ml-auto"><i class="fas fa-bars" aria-hidden="true"></i></button>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
                 <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
                 <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
@@ -64,10 +68,10 @@
     </header>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-[200] transform translate-x-full transition-transform duration-300 flex flex-col p-6 md:hidden">
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white z-[200] transform translate-x-full transition-transform duration-300 flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
-            <button class="text-2xl text-slate-500 hover:text-red-500" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+            <button class="text-2xl text-slate-500 hover:text-red-500" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-5 font-bold text-lg text-slate-700">
             <a href="index.html" class="hover:text-hal-500 transition">Home</a>
@@ -87,7 +91,7 @@
     </div>
 
 
-    <main class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
+    <main class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8" id="main-content" tabindex="-1">
         <!-- Sidebar -->
         <aside class="md:col-span-1">
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 sticky top-28">
@@ -127,5 +131,6 @@
             </div>
         </div>
     </main>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

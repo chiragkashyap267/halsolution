@@ -13,14 +13,16 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
-                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15' } }
                 }
             }
         }
     </script>
 
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="bg-slate-50 text-slate-800 flex h-screen overflow-hidden">
+<body class="page-admin bg-slate-50 text-slate-800 flex h-screen overflow-hidden">
     <!-- Sidebar -->
     <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col shrink-0">
         <div class="h-20 flex items-center px-6 bg-slate-950 text-white border-b border-slate-800">
@@ -108,6 +110,7 @@
                     <h3 class="font-bold text-lg text-slate-900">Active Live Orders</h3>
                     <button class="text-hal-600 font-bold text-sm hover:underline">View All</button>
                 </div>
+                <div class="table-scroll" role="region" aria-label="Active orders table" tabindex="0">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="bg-white text-slate-400 text-sm uppercase tracking-wider border-b border-slate-100">
@@ -122,14 +125,14 @@
                         <tr class="hover:bg-slate-50 transition">
                             <td class="px-6 py-4 font-bold text-slate-900">#200631021</td>
                             <td class="px-6 py-4">Amit Sharma<br><span class="text-xs text-slate-400">Sector 62, Noida</span></td>
-                            <td class="px-6 py-4 flex items-center gap-2"><img src="images/5bc6f22e7cf2.jpg" class="w-8 h-8 rounded-full"> Ramesh K.</td>
+                            <td class="px-6 py-4 flex items-center gap-2"><img src="images/5bc6f22e7cf2.svg" alt="Ramesh initials" class="w-8 h-8 rounded-full" decoding="async" loading="lazy"> Ramesh K.</td>
                             <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs font-bold border border-slate-200">Paper & Metal</span></td>
                             <td class="px-6 py-4"><span class="text-amber-500 bg-amber-50 px-3 py-1 rounded-full text-xs font-bold border border-amber-200"><i class="fas fa-truck-moving"></i> En Route</span></td>
                         </tr>
                         <tr class="hover:bg-slate-50 transition">
                             <td class="px-6 py-4 font-bold text-slate-900">#200631022</td>
                             <td class="px-6 py-4">Priya Singh<br><span class="text-xs text-slate-400">Indirapuram, GZB</span></td>
-                            <td class="px-6 py-4 flex items-center gap-2"><img src="images/aa5e4293dc4f.jpg" class="w-8 h-8 rounded-full"> Suresh M.</td>
+                            <td class="px-6 py-4 flex items-center gap-2"><img src="images/aa5e4293dc4f.svg" alt="Suresh initials" class="w-8 h-8 rounded-full" decoding="async" loading="lazy"> Suresh M.</td>
                             <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs font-bold border border-slate-200">Large Appliances</span></td>
                             <td class="px-6 py-4"><span class="text-emerald-500 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200"><i class="fas fa-check-circle"></i> Weighing</span></td>
                         </tr>
@@ -142,8 +145,10 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </main>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

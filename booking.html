@@ -13,7 +13,7 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
-                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15' } }
                 }
             }
         }
@@ -24,8 +24,10 @@
         .step-content.active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="page-booking bg-slate-50 text-slate-800 min-h-screen flex flex-col">
     <!-- Header Minimal -->
     <header class="bg-white shadow-sm h-20 flex items-center px-4 md:px-8 shrink-0">
         <a href="index.html" class="flex items-center gap-2">
@@ -42,8 +44,8 @@
             
             <!-- Progress Sidebar -->
             <div class="bg-slate-900 text-white p-8 md:w-1/3 flex flex-col justify-center">
-                <h3 class="text-2xl font-black mb-8 text-hal-400">The Frictionless Journey</h3>
-                <div class="space-y-6 relative">
+                <h3 class="text-2xl font-black mb-8 text-hal-400">Schedule your pickup</h3>
+                <div class="relative grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-6">
                     <div class="absolute left-4 top-4 bottom-4 w-0.5 bg-slate-700 z-0"></div>
                     <div class="relative z-10 flex items-center gap-4 text-hal-400 font-bold" id="nav-step-1">
                         <div class="w-8 h-8 rounded-full bg-hal-500 text-white flex items-center justify-center border-4 border-slate-900"><i class="fas fa-box"></i></div> Select Scrap
@@ -100,7 +102,7 @@
                     <h2 class="text-2xl font-black text-slate-900 mb-2">Where should we come?</h2>
                     <p class="text-slate-500 font-medium mb-6">Add your address for the pickup.</p>
                     <div class="bg-slate-100 rounded-xl h-40 mb-4 flex items-center justify-center text-slate-400 border border-slate-200 relative overflow-hidden">
-                        <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Map">
+                        <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Map" decoding="async" loading="lazy">
                         <div class="bg-white px-4 py-2 rounded-full shadow-md z-10 font-bold text-hal-600 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Locating...</div>
                     </div>
                     <input type="text" value="Sector 62, Noida, UP 201309" class="w-full px-4 py-4 rounded-xl border-2 border-slate-200 focus:border-hal-500 outline-none text-lg font-semibold bg-slate-50 mb-6" placeholder="Complete Address">
@@ -222,5 +224,6 @@
             }
         } catch(e) {}
     </script>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

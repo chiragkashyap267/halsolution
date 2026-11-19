@@ -17,7 +17,7 @@
                         hal: {
                             50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
                             400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
-                            800: '#155E75', 900: '#0A66C2', accent: '#FACC15'
+                            800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15'
                         }
                     }
                 }
@@ -30,18 +30,20 @@
         .article-content h2 { font-size: 1.875rem; font-weight: 800; color: #0f172a; margin-top: 2.5rem; margin-bottom: 1rem; }
         .article-content h3 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 0.75rem; }
     </style>
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="antialiased text-slate-800 pt-20">
+<body class="page-blog-post has-floating-actions antialiased text-slate-800 pt-20">
 
     <!-- FABs -->
-    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+    <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
         <a href="https://wa.me/918851644415" target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+918851644415" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+    <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
@@ -50,7 +52,7 @@
                     <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
                 </div>
             </a>
-            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
                 <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
                 <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
@@ -74,10 +76,10 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
-            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
             <a href="index.html" class="hover:text-hal-500 transition">Home</a>
@@ -86,6 +88,7 @@
             <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
             <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
             <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <a href="booking.html" class="text-hal-600">Book a pickup</a>
         </nav>
     </div>
 
@@ -129,7 +132,7 @@
 
         <!-- Featured Image -->
         <div class="rounded-3xl overflow-hidden mb-12 shadow-xl border border-slate-100" data-aos="zoom-in">
-            <img src="images/unsplash_1532996122724-e3c354a0b15b.jpg" class="w-full h-[420px] object-cover" alt="Modern Scrap Recycling Facility">
+            <img src="images/unsplash_1532996122724-e3c354a0b15b.jpg" class="w-full h-[420px] object-cover" alt="Modern Scrap Recycling Facility" decoding="async" loading="lazy">
             <p class="text-center text-xs text-slate-400 py-3 bg-slate-50">Precision digital sorting streamlines recyclable recovery from doorstep to authorized smelting.</p>
         </div>
 
@@ -257,17 +260,17 @@
             <h3 class="text-2xl font-black text-slate-900 mb-8">Related Articles</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="blog.html" class="block p-5 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="images/unsplash_1518709268805-4e9042af9f23.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Metal scrap">
+                    <img src="images/unsplash_1518709268805-4e9042af9f23.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Metal scrap" decoding="async" loading="lazy">
                     <span class="text-xs font-black text-hal-600 uppercase">Scrap Rates</span>
                     <h5 class="font-bold text-slate-900 text-sm mt-1">Turn Old Brass & Copper into Real Cash</h5>
                 </a>
                 <a href="blog.html" class="block p-5 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="images/paper_scrap_replacement.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Paper scrap">
+                    <img src="images/paper_scrap_replacement.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Paper scrap" decoding="async" loading="lazy">
                     <span class="text-xs font-black text-hal-600 uppercase">Recycling</span>
                     <h5 class="font-bold text-slate-900 text-sm mt-1">Newspaper & Books: What Your Raddi is Worth</h5>
                 </a>
                 <a href="blog.html" class="block p-5 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="images/unsplash_1558981403-c5f9899a28bc.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Vehicle scrap">
+                    <img src="images/unsplash_1558981403-c5f9899a28bc.jpg" class="w-full h-36 object-cover rounded-2xl mb-4" alt="Vehicle scrap" decoding="async" loading="lazy">
                     <span class="text-xs font-black text-hal-600 uppercase">Vehicles</span>
                     <h5 class="font-bold text-slate-900 text-sm mt-1">Simple Guide to Scrapping Old Two-Wheelers</h5>
                 </a>
@@ -294,5 +297,6 @@
     <script>
         AOS.init({ duration: 600, once: true });
     </script>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

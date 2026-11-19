@@ -18,7 +18,7 @@
                     },
                     colors: { 
                         hal: { 
-                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' 
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15'
                         } 
                     }
                 }
@@ -41,8 +41,11 @@
             border: 3px solid #ffffff;
         }
     </style>
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="text-slate-800 pt-20 font-sans antialiased selection:bg-hal-500 selection:text-white">
+<body class="page-rate-card text-slate-800 pt-20 font-sans antialiased selection:bg-hal-500 selection:text-white">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- Floating Action Buttons -->
     <div class="fixed right-6 bottom-24 flex flex-col gap-3 z-30">
@@ -52,7 +55,7 @@
     </div>
 
     <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full glass-header shadow-[0_2px_15px_rgba(0,0,0,0.04)] z-40 border-b border-slate-100 transition-all">
+    <header class="site-header fixed top-0 left-0 w-full glass-header shadow-[0_2px_15px_rgba(0,0,0,0.04)] z-40 border-b border-slate-100 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <i class="fas fa-recycle text-3xl text-hal-500 group-hover:rotate-180 transition duration-700"></i>
@@ -61,7 +64,7 @@
                     <h2 class="text-hal-500 font-black text-xl leading-tight">SOLUTION</h2>
                 </div>
             </a>
-            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')">
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
@@ -87,10 +90,10 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
-            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
             <a href="index.html" class="hover:text-hal-500 transition">Home</a>
@@ -99,11 +102,12 @@
             <a href="blog.html" class="hover:text-hal-500 transition">Blog</a>
             <a href="contact.html" class="hover:text-hal-500 transition">Contact</a>
             <a href="terms.html" class="hover:text-hal-500 transition">Terms</a>
+            <a href="booking.html" class="text-hal-600">Book a pickup</a>
         </nav>
     </div>
 
     <!-- Main Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" id="main-content" tabindex="-1">
 
         <!-- Top Header & Search Bar -->
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-6">
@@ -321,7 +325,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="newspaper (raddi)" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1504711434969-e33886168f5c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Newspaper (Raddi)" loading="lazy">
+                    <img src="images/unsplash_1504711434969-e33886168f5c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Newspaper (Raddi)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -352,7 +356,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="books & notebooks" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1497633762265-9d179a990aa6.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Books & Notebooks" loading="lazy">
+                    <img src="images/unsplash_1497633762265-9d179a990aa6.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Books & Notebooks" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -383,7 +387,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="cardboard (corrugated)" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Cardboard (Corrugated)" loading="lazy">
+                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Cardboard (Corrugated)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -414,7 +418,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="white office paper" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1586075010923-2dd4570fb338.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="White Office Paper" loading="lazy">
+                    <img src="images/unsplash_1586075010923-2dd4570fb338.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="White Office Paper" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -445,7 +449,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="magazines & glossy" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1544716278-ca5e3f4abd8c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Magazines & Glossy" loading="lazy">
+                    <img src="images/unsplash_1544716278-ca5e3f4abd8c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Magazines & Glossy" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -476,7 +480,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="grey board & paper cartons" data-category="paper">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Grey Board & Paper Cartons" loading="lazy">
+                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Grey Board & Paper Cartons" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -525,7 +529,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="used / old clothes" data-category="clothes">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1523381210434-271e8be1f52b.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Used / Old Clothes" loading="lazy">
+                    <img src="images/unsplash_1523381210434-271e8be1f52b.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Used / Old Clothes" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -574,7 +578,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="iron (loha)" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1518709268805-4e9042af9f23_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Iron (Loha)" loading="lazy">
+                    <img src="images/unsplash_1518709268805-4e9042af9f23_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Iron (Loha)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -605,7 +609,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="tin / sheet metal" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1532996122724-e3c354a0b15b_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Tin / Sheet Metal" loading="lazy">
+                    <img src="images/unsplash_1532996122724-e3c354a0b15b_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Tin / Sheet Metal" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -636,7 +640,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="aluminium scrap" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1563245372-f21724e3856d.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Aluminium Scrap" loading="lazy">
+                    <img src="images/unsplash_1563245372-f21724e3856d.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Aluminium Scrap" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -667,7 +671,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="copper scrap (taamba)" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1589939705384-5185137a7f0f.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Copper Scrap (Taamba)" loading="lazy">
+                    <img src="images/unsplash_1589939705384-5185137a7f0f.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Copper Scrap (Taamba)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -698,7 +702,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="brass scrap (peetal)" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1615529182904-14819c35db37.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Brass Scrap (Peetal)" loading="lazy">
+                    <img src="images/unsplash_1615529182904-14819c35db37.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Brass Scrap (Peetal)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -729,7 +733,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="steel scrap (bartan)" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1584269600464-37b1b58a9fe7.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Steel Scrap (Bartan)" loading="lazy">
+                    <img src="images/unsplash_1584269600464-37b1b58a9fe7.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Steel Scrap (Bartan)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -760,7 +764,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="lead (sikka)" data-category="metals">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1535813547-99c456a41d4a.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Lead (Sikka)" loading="lazy">
+                    <img src="images/unsplash_1535813547-99c456a41d4a.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Lead (Sikka)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -809,7 +813,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="window / split ac (2 ton)" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (2 Ton)" loading="lazy">
+                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (2 Ton)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -840,7 +844,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="window / split ac (1.5 ton)" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (1.5 Ton)" loading="lazy">
+                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (1.5 Ton)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -871,7 +875,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="window / split ac (1 ton)" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (1 Ton)" loading="lazy">
+                    <img src="images/unsplash_1621905251189-08b45d6a269e.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Window / Split AC (1 Ton)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -902,7 +906,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="double door refrigerator" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1584568694244-14fbdf83bd30.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Double Door Refrigerator" loading="lazy">
+                    <img src="images/unsplash_1584568694244-14fbdf83bd30.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Double Door Refrigerator" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -933,7 +937,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="single door refrigerator" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1584568694244-14fbdf83bd30.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Single Door Refrigerator" loading="lazy">
+                    <img src="images/unsplash_1584568694244-14fbdf83bd30.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Single Door Refrigerator" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -964,7 +968,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="fully-auto washing machine" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1626806787461-102c1bfaaea1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Fully-Auto Washing Machine" loading="lazy">
+                    <img src="images/unsplash_1626806787461-102c1bfaaea1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Fully-Auto Washing Machine" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -995,7 +999,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="semi-auto washing machine" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1626806787461-102c1bfaaea1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Semi-Auto Washing Machine" loading="lazy">
+                    <img src="images/unsplash_1626806787461-102c1bfaaea1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Semi-Auto Washing Machine" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1026,7 +1030,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="microwave oven" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1574269909862-7e1d70bb8078.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Microwave Oven" loading="lazy">
+                    <img src="images/unsplash_1574269909862-7e1d70bb8078.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Microwave Oven" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1057,7 +1061,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="geyser (water heater)" data-category="appliances">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1585338107529-13afc5f02586.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Geyser (Water Heater)" loading="lazy">
+                    <img src="images/unsplash_1585338107529-13afc5f02586.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Geyser (Water Heater)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1106,7 +1110,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="desktop computer cpu" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1587202372634-32705e3bf49c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Desktop Computer CPU" loading="lazy">
+                    <img src="images/unsplash_1587202372634-32705e3bf49c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Desktop Computer CPU" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1137,7 +1141,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="laptop (dead / scrap)" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1496181133206-80ce9b88a853.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Laptop (Dead / Scrap)" loading="lazy">
+                    <img src="images/unsplash_1496181133206-80ce9b88a853.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Laptop (Dead / Scrap)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1168,7 +1172,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="lcd / led monitor" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1527443224154-c4a3942d3acf.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="LCD / LED Monitor" loading="lazy">
+                    <img src="images/unsplash_1527443224154-c4a3942d3acf.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="LCD / LED Monitor" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1199,7 +1203,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="crt monitor" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1527443224154-c4a3942d3acf.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="CRT Monitor" loading="lazy">
+                    <img src="images/unsplash_1527443224154-c4a3942d3acf.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="CRT Monitor" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1230,7 +1234,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="ups (computer power supply)" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1544716278-ca5e3f4abd8c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="UPS (Computer Power Supply)" loading="lazy">
+                    <img src="images/unsplash_1544716278-ca5e3f4abd8c.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="UPS (Computer Power Supply)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1261,7 +1265,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="printer / scanner" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1612815154858-60aa4c59eaa6.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Printer / Scanner" loading="lazy">
+                    <img src="images/unsplash_1612815154858-60aa4c59eaa6.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Printer / Scanner" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1292,7 +1296,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="inverter (excl. battery)" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1581092160607-ee22621dd758.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Inverter (Excl. Battery)" loading="lazy">
+                    <img src="images/unsplash_1581092160607-ee22621dd758.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Inverter (Excl. Battery)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1323,7 +1327,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="lead-acid inverter battery" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1619725002198-6a689b72f41d.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Lead-Acid Inverter Battery" loading="lazy">
+                    <img src="images/unsplash_1619725002198-6a689b72f41d.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Lead-Acid Inverter Battery" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1354,7 +1358,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="electrical & copper wires" data-category="ewaste">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1558494949-ef010cbdcc31.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Electrical & Copper Wires" loading="lazy">
+                    <img src="images/unsplash_1558494949-ef010cbdcc31.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Electrical & Copper Wires" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1403,7 +1407,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="pet water & cold drink bottles" data-category="plastics">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="PET Water & Cold Drink Bottles" loading="lazy">
+                    <img src="images/unsplash_1530587191325-3db32d826c18.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="PET Water & Cold Drink Bottles" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1434,7 +1438,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="hard plastic (buckets, chairs, crates)" data-category="plastics">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1526951521990-620dc14c214b.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Hard Plastic (Buckets, Chairs, Crates)" loading="lazy">
+                    <img src="images/unsplash_1526951521990-620dc14c214b.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Hard Plastic (Buckets, Chairs, Crates)" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1465,7 +1469,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="soft polythene & wrappers" data-category="plastics">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1604187351574-c75ca79f5807_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Soft Polythene & Wrappers" loading="lazy">
+                    <img src="images/unsplash_1604187351574-c75ca79f5807_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Soft Polythene & Wrappers" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1514,7 +1518,7 @@
                 
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="motorcycle / bike scrap" data-category="vehicles">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1558981403-c5f9899a28bc_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Motorcycle / Bike Scrap" loading="lazy">
+                    <img src="images/unsplash_1558981403-c5f9899a28bc_1.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Motorcycle / Bike Scrap" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1545,7 +1549,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="scooty / scooter scrap" data-category="vehicles">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1568772585407-9361f9bf3a87.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Scooty / Scooter Scrap" loading="lazy">
+                    <img src="images/unsplash_1568772585407-9361f9bf3a87.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Scooty / Scooter Scrap" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1576,7 +1580,7 @@
         
             <div class="scrap-item bg-white rounded-3xl p-4 shadow-sm border border-slate-100 flex gap-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group" data-name="four wheeler / car scrap" data-category="vehicles">
                 <div class="relative w-28 h-28 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-inner flex items-center justify-center">
-                    <img src="images/unsplash_1530053969600-caed2596d242.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Four Wheeler / Car Scrap" loading="lazy">
+                    <img src="images/unsplash_1530053969600-caed2596d242.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%230891b2' stroke-width='1.5'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Four Wheeler / Car Scrap" loading="lazy" decoding="async">
                 </div>
                 <div class="flex-1 flex flex-col justify-between py-1">
                     <div>
@@ -1884,5 +1888,6 @@
             document.getElementById('estimatorCart').classList.remove('translate-y-full');
         }
     </script>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

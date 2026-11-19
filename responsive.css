@@ -1,0 +1,137 @@
+/* Shared layout and accessibility rules for the static website. */
+:root { --site-blue: #0a66c2; }
+html { scroll-padding-top: 6rem; }
+body { min-width: 0; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video, iframe { max-width: 100%; }
+.grid > *, .flex > * { min-width: 0; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, select, input:not([type="range"]):not([type="checkbox"]):not([type="radio"]) { min-height: 44px; }
+button { min-width: 44px; touch-action: manipulation; }
+input:not([type="range"]), select, textarea { font-size: max(1rem, 1em); }
+:focus-visible { outline: 3px solid var(--site-blue); outline-offset: 4px; }
+body .text-xs { font-size: .875rem; line-height: 1.5; }
+.skip-link { position: fixed; top: 1rem; left: 1rem; transform: translateY(-200%); background: white; color: #0f172a; padding: .75rem 1rem; border-radius: .75rem; z-index: 500; }
+.skip-link:focus { transform: none; }
+.site-header > div { gap: 1.25rem; }
+.site-header > div > a { flex-shrink: 0; }
+.site-header nav > a, .site-header nav > div > button { min-height: 44px; display: inline-flex; align-items: center; }
+.site-header nav > .group > div { margin-top: 0; padding-top: .75rem; }
+.site-header nav > .group[data-open="true"] > div { opacity: 1; visibility: visible; transform: translateX(-50%) scale(1); }
+.site-header nav > .group[data-open="false"] > div { opacity: 0; visibility: hidden; }
+#mobile-menu { height: 100dvh; overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(1.5rem, env(safe-area-inset-bottom)); }
+#mobile-menu > div:first-child { flex-shrink: 0; }
+#mobile-menu nav { gap: .5rem; }
+#mobile-menu nav a { display: flex; align-items: center; min-height: 44px; padding-block: .5rem; }
+#mobile-menu button, [data-menu-open] { min-width: 44px; min-height: 44px; }
+.menu-open { overflow: hidden; }
+.floating-actions { z-index: 35; }
+.floating-actions > a { flex-shrink: 0; }
+footer a[href^="mailto:"], .contact-banner a { overflow-wrap: anywhere; }
+.contact-banner { gap: clamp(1.5rem, 4vw, 3rem); }
+.contact-banner h3 { font-size: clamp(1.75rem, 3.3vw, 3rem); line-height: 1.2; text-wrap: balance; }
+.contact-banner > div { flex: 1 1 0; }
+.contact-banner i { flex-shrink: 0; }
+.table-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.table-scroll table { min-width: 680px; }
+#callback-overlay > div { max-height: calc(100dvh - 2rem); overflow-y: auto; overscroll-behavior: contain; }
+#estimatorCart { max-height: calc(100dvh - 6rem); padding-bottom: env(safe-area-inset-bottom); }
+#cartItems { max-height: 40dvh; }
+.page-index .hero-bg h1 { font-size: clamp(2.25rem, 5.5vw, 4.5rem); line-height: 1.12; text-wrap: balance; }
+.page-index .hero-bg { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(3rem, 8vw, 8rem); }
+.page-index section > div > h2 { font-size: clamp(1.875rem, 4vw, 3rem); line-height: 1.2; text-wrap: balance; }
+.page-index footer { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.page-booking main > div > div { min-width: 0; }
+.page-admin main > div > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.page-admin main > div > .grid > div { flex-wrap: wrap; }
+.page-executive > div:first-child { height: min(800px, calc(100dvh - 2rem)); min-height: 660px; flex-shrink: 0; }
+@media (min-width: 1536px) {
+    .page-admin main > div > .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Use a drawer until there is room for every desktop navigation link. */
+@media (max-width: 1199px) {
+    .site-header > div > nav { display: none; }
+    .site-header [data-menu-open] { display: inline-flex; align-items: center; justify-content: center; margin: 0 0 0 auto; }
+    #mobile-menu { display: flex; }
+    .page-admin > aside { width: 210px; }
+    .page-admin main > header { padding-inline: 1rem; gap: 1rem; flex-wrap: wrap; height: auto; min-height: 80px; padding-block: .75rem; }
+    .page-admin main > header > div:first-child { width: auto; flex: 1 1 220px; }
+    .page-admin main > header > div:last-child { gap: .5rem; }
+    .page-admin main > div > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .page-admin main > div > .grid > div { flex-wrap: wrap; }
+    .page-dashboard > main { grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr); }
+    .page-dashboard > main > * { grid-column: auto; }
+}
+@media (min-width: 1200px) {
+    .site-header > div > nav { display: flex; gap: clamp(1rem, 2vw, 2rem); }
+    .site-header [data-menu-open], #mobile-menu { display: none; }
+}
+@media (max-width: 1023px) {
+    .contact-banner { flex-direction: column; align-items: stretch; padding: 2rem; border-radius: 2rem; }
+    .contact-banner > div { width: 100%; }
+    .contact-banner > div:last-child { border-left: 0; border-top: 1px solid #ffffff40; padding: 1.5rem 0 0; }
+    .page-enterprise > header { height: auto; min-height: 80px; padding: 1rem; flex-wrap: wrap; gap: 1rem; }
+    .page-enterprise > header > div { margin-left: 0; flex-wrap: wrap; gap: 1rem; }
+    .page-enterprise main > div:first-child { align-items: flex-start; flex-direction: column; gap: 1rem; }
+    .page-enterprise main > .grid.grid-cols-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+    body.has-floating-actions { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    .floating-actions { inset: auto 0 0; display: flex; flex-direction: row; justify-content: center; gap: 1.5rem; padding: .625rem 1rem calc(.625rem + env(safe-area-inset-bottom)); background: #fffffffa; border-top: 1px solid #e2e8f0; box-shadow: 0 -4px 20px #0f172a0a; }
+    .floating-actions > a { width: 44px; height: 44px; box-shadow: none; }
+    .site-header > div { height: 72px; }
+    body:has(> .site-header) { padding-top: 72px; }
+    .page-index > section.py-32, .page-index > section.py-28, .page-index > section.py-24, .page-index > section.py-20 { padding-block: 3.5rem; }
+    .page-index .hero-bg > .absolute { display: none; }
+    .page-index > div.pointer-events-none { display: none; }
+    .page-index .hero-bg .glass-widget { width: 100%; }
+    .page-index .hero-bg > div > p.flex { flex-wrap: wrap; gap: .5rem; font-size: 1rem; margin-bottom: 2.5rem; }
+    .page-index .glass-widget input { padding-inline: .5rem; font-size: 1rem; }
+    .page-index .glass-widget button { padding-inline: 1rem; }
+    .page-index .glass-widget span { padding-inline: .5rem; }
+    .page-index .hero-bg .absolute.rounded-full { white-space: nowrap; }
+    .page-rate-card { padding-bottom: 100px; }
+    .page-index .marquee-wrapper::before, .page-index .marquee-wrapper::after { width: 32px; }
+    .page-index footer > div:first-child { margin-bottom: 2.5rem; }
+    .contact-banner { padding: 1.5rem; border-radius: 1.5rem; }
+    .contact-banner button { width: 100%; }
+    .page-blog h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    .page-booking main { align-items: flex-start; }
+    .page-booking main > div > div { padding: 1.25rem; }
+    .page-booking main > div > div:first-child > h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .page-booking main > div > div:first-child > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .page-booking main > div > div:first-child > div > .absolute { display: none; }
+    .page-booking main [id^="nav-step-"] { margin: 0; gap: .5rem; font-size: .875rem; }
+    .page-booking main [id^="nav-step-"] > div { flex-shrink: 0; }
+    .page-booking .step-content .flex > button { flex: 1 1 0; width: auto; padding-inline: .5rem; }
+    .page-dashboard > main { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 1.5rem; }
+    .page-dashboard > main > * { grid-column: auto; }
+    .page-dashboard aside .sticky { position: static; }
+    .page-admin { height: auto; min-height: 100dvh; overflow: auto; flex-direction: column; }
+    .page-admin > aside { width: 100%; }
+    .page-admin > aside > nav { display: flex; flex: none; overflow-x: auto; gap: .5rem; padding: .75rem; }
+    .page-admin > aside > nav > p, .page-admin > aside > div:last-child { display: none; }
+    .page-admin > aside > nav > a { flex-shrink: 0; white-space: nowrap; margin: 0; min-height: 44px; }
+    .page-admin main > div { overflow: visible; padding: 1rem; }
+    .page-admin main > div > .grid { gap: .75rem; }
+    .page-admin main > div > .grid > div { padding: 1rem; gap: .75rem; }
+    .page-admin main > div > .grid .text-3xl { font-size: 1.5rem; }
+    .page-enterprise main { padding: 1.25rem; }
+    .page-enterprise main > .grid { grid-template-columns: 1fr; gap: 1rem; }
+    .page-executive { padding: 0; }
+    .page-executive > div:first-child { max-width: none; height: 100dvh; min-height: 700px; border: 0; border-radius: 0; box-shadow: none; }
+    .page-executive > div:first-child > div:first-child { display: none; }
+    .page-executive > div:first-child > header { padding-top: 1.5rem; }
+}
+@media (max-width: 379px) {
+    .page-index .grid.grid-cols-2 > div { padding: .75rem; }
+    .page-admin main > div > .grid { grid-template-columns: 1fr; }
+    .page-booking > header { gap: .5rem; }
+    .page-booking > header > div { font-size: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    [data-aos] { opacity: 1 !important; transform: none !important; }
+}

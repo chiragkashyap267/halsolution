@@ -13,14 +13,16 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
-                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15' } }
                 }
             }
         }
     </script>
 
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="page-enterprise bg-slate-50 text-slate-800 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="bg-slate-900 text-white h-20 flex items-center px-8 shrink-0 shadow-md">
         <a href="index.html" class="flex items-center gap-3">
@@ -123,5 +125,6 @@
             </div>
         </div>
     </main>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

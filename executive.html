@@ -13,14 +13,16 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Poppins', 'sans-serif'] },
-                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15' } }
+                    colors: { hal: { 50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15' } }
                 }
             }
         }
     </script>
 
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="bg-slate-800 min-h-screen flex items-center justify-center p-4">
+<body class="page-executive bg-slate-800 min-h-screen flex items-center justify-center p-4">
     
     <!-- Phone Mockup Container -->
     <div class="w-full max-w-[400px] h-[800px] bg-white rounded-[3rem] shadow-2xl relative overflow-hidden border-[12px] border-slate-900 flex flex-col">
@@ -37,7 +39,7 @@
             <!-- Toggle Duty -->
             <div class="flex justify-between items-center bg-white/20 p-3 rounded-xl border border-white/30 backdrop-blur-sm">
                 <div class="flex items-center gap-3">
-                    <img src="images/34727dc01089.jpg" class="w-10 h-10 rounded-full border-2 border-white">
+                    <img src="images/34727dc01089.jpg" class="w-10 h-10 rounded-full border-2 border-white" decoding="async">
                     <div>
                         <p class="font-bold text-sm leading-tight">Ramesh Kumar</p>
                         <p class="text-xs text-hal-100"><i class="fas fa-circle text-emerald-300 text-[10px]"></i> On Duty</p>
@@ -51,7 +53,7 @@
 
         <!-- Map Area -->
         <div class="flex-1 relative bg-slate-200">
-            <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="w-full h-full object-cover opacity-60" alt="Map">
+            <img src="images/unsplash_1524661135-423995f22d0b.jpg" class="w-full h-full object-cover opacity-60" alt="Map" decoding="async">
             
             <!-- Route Line Simulation -->
             <svg class="absolute inset-0 w-full h-full z-10" pointer-events="none">
@@ -105,5 +107,6 @@
         </ul>
         <button class="mt-8 bg-transparent border-2 border-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-slate-900 transition" onclick="window.location.href='index.html'"><i class="fas fa-arrow-left mr-2"></i> Back to Homepage</button>
     </div>
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>

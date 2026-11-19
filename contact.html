@@ -18,7 +18,7 @@
                     },
                     colors: {
                         hal: {
-                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', accent: '#FACC15'
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9', 400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490', 800: '#155E75', 900: '#0A66C2', 950: '#073B66', accent: '#FACC15'
                         }
                     }
                 }
@@ -51,18 +51,21 @@
             transform: scale(1.05);
         }
     </style>
+    <link rel="stylesheet" href="responsive.css?v=2">
+    <script src="site.js?v=2" defer></script>
 </head>
-<body class="antialiased text-slate-800 pt-20 bg-slate-50">
+<body class="page-contact has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <!-- FABs -->
-    <div class="fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
+    <div class="floating-actions fixed right-6 bottom-1/4 flex flex-col gap-4 z-50">
         <a href="#" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-share-alt"></i></a>
         <a href="https://wa.me/918851644415" target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition duration-300"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+918851644415" class="w-12 h-12 bg-hal-500 text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-110 transition duration-300"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
+    <header class="site-header fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.05)] z-40 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <div class="flex items-center gap-2">
@@ -73,7 +76,7 @@
                     </div>
                 </div>
             </a>
-            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" onclick="document.getElementById('mobile-menu').classList.remove('translate-x-full')"><i class="fas fa-bars"></i></button>
+            <button class="md:hidden text-2xl text-slate-700 ml-auto mr-4 hover:text-hal-500 transition" type="button" data-menu-open aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <nav class="hidden md:flex gap-8 items-center font-medium text-slate-700">
                 <a href="index.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
                 <a href="about.html" class="hover:text-hal-500 transition relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-hal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
@@ -97,10 +100,10 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
+    <div id="mobile-menu" inert aria-hidden="true" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[200] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-hal-900 font-black text-2xl">HAL SOLUTION</h2>
-            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')"><i class="fas fa-times"></i></button>
+            <button class="text-3xl text-slate-500 hover:text-red-500 transition hover:rotate-90" type="button" data-menu-close aria-label="Close navigation"><i class="fas fa-times"></i></button>
         </div>
         <nav class="flex flex-col gap-6 font-bold text-xl text-slate-700">
             <a href="index.html" class="hover:text-hal-500 transition">Home</a>
@@ -121,7 +124,7 @@
 
 
     <!-- 1. Hero Section -->
-    <section class="relative bg-gradient-to-br from-hal-50 via-white to-cyan-50 pt-16 pb-20 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-hal-50 via-white to-cyan-50 pt-16 pb-20 overflow-hidden" id="main-content" tabindex="-1">
         <!-- Decorative blobs -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-hal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
         <div class="absolute bottom-0 left-0 w-80 h-80 bg-hal-accent rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
@@ -279,7 +282,7 @@
                     <label class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
                     <div class="flex">
                         <span class="inline-flex items-center px-4 rounded-l-xl border-2 border-r-0 border-slate-200 bg-slate-50 text-slate-600 font-bold text-sm">
-                            <img src="images/in.png.png" alt="IN" class="mr-2 rounded-sm"> +91
+                            <img src="images/in.png.png" alt="IN" class="mr-2 rounded-sm" decoding="async" loading="lazy"> +91
                         </span>
                         <input type="tel" id="cb-phone" placeholder="8851 644 415" class="w-full px-4 py-3 rounded-r-xl border-2 border-slate-200 focus:border-hal-400 focus:ring-0 outline-none transition text-slate-800 font-medium placeholder-slate-400" maxlength="10">
                     </div>
@@ -327,12 +330,13 @@
                 <h2 class="text-3xl md:text-4xl font-black text-slate-900">Our Location</h2>
                 <p class="text-slate-500 font-medium mt-2">UPSIDC Kasna Industrial Area, Greater Noida</p>
             </div>
-            <div data-aos="fade-up" data-aos-delay="150" class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-                <iframe
-                    src="images/embed.jpg"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    class="w-full"
-                ></iframe>
+            <div data-aos="fade-up" data-aos-delay="150" class="rounded-3xl bg-white p-6 sm:p-10 shadow-lg border border-slate-200 flex flex-col sm:flex-row items-start gap-6">
+                <div class="w-16 h-16 shrink-0 rounded-2xl bg-hal-50 text-hal-600 flex items-center justify-center text-3xl"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-slate-900">Visit HAL Solution</h3>
+                    <p class="text-slate-600 leading-relaxed">Plot No. K-58, Site V, UPSIDC Kasna Industrial Area, Greater Noida, 201308.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Plot+K-58+Site+V+UPSIDC+Kasna+Industrial+Area+Greater+Noida+201308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-11 bg-hal-600 text-white font-bold px-5 py-3 rounded-xl hover:bg-hal-700 transition">View on Google Maps</a>
+                </div>
             </div>
         </div>
     </section>
@@ -508,5 +512,6 @@
         }
     </style>
 
+    <p id="site-status" class="sr-only" role="status" aria-live="polite"></p>
 </body>
 </html>
