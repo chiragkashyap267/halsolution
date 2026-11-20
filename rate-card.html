@@ -1789,7 +1789,7 @@
                 estimateItems[name] = { price: price, unit: unit, qty: qtyToAdd };
             }
             saveCart();
-            updateCartUI();
+            updateCartUI(true);
 
             const cart = document.getElementById('estimatorCart');
             cart.classList.remove('translate-y-full');
@@ -1812,11 +1812,12 @@
             } catch(e) {}
         }
 
-        function updateCartUI() {
+        function updateCartUI(expand = false) {
             const cartItemsDiv = document.getElementById('cartItems');
             const cartTotalSpan = document.getElementById('cartTotal');
             const cartAction = document.getElementById('cartAction');
             const cartItemCount = document.getElementById('cartItemCount');
+            const expanded = expand || !cartItemsDiv.classList.contains('hidden');
 
             cartItemsDiv.innerHTML = '';
             let total = 0;
@@ -1826,6 +1827,7 @@
             if (keys.length === 0) {
                 cartItemsDiv.innerHTML = '<div class="text-center text-slate-400 text-sm py-4">No items added to estimate yet. Click <span class="text-hal-600 font-bold">+</span> on any card!</div>';
                 cartAction.classList.add('hidden');
+                cartItemsDiv.classList.add('hidden');
                 document.querySelector('.estimate-summary').setAttribute('aria-expanded', 'false');
                 cartTotalSpan.textContent = '₹0';
                 cartTotalSpan.classList.remove('is-long-amount');
@@ -1866,9 +1868,10 @@
             cartTotalSpan.textContent = `₹${total.toLocaleString()}`;
             cartTotalSpan.classList.toggle('is-long-amount', cartTotalSpan.textContent.length > 9);
             cartItemCount.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'} chosen`;
-            cartItemsDiv.classList.remove('hidden');
-            cartAction.classList.remove('hidden');
-            document.querySelector('.estimate-summary').setAttribute('aria-expanded', 'true');
+            cartItemsDiv.classList.toggle('hidden', !expanded);
+            cartAction.classList.toggle('hidden', !expanded);
+            document.querySelector('.estimate-summary').setAttribute('aria-expanded', String(expanded));
+            document.getElementById('cartToggleIcon').className = `fas fa-chevron-${expanded ? 'down' : 'up'} text-xs text-hal-200`;
         }
 
         function toggleCart() {
