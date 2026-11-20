@@ -135,6 +135,7 @@
     <script src="site.js?v=4" defer></script>
     <link rel="stylesheet" href="account.css?v=4">
     <script src="account.js?v=4" defer></script>
+    <link rel="stylesheet" href="catalog.css?v=5">
 </head>
 <body class="page-index has-floating-actions antialiased text-slate-800 pt-20">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -370,7 +371,7 @@
                     </div>
 
                     <div>
-                        <div class="flex justify-between items-center mb-2">
+                        <div class="calculator-weight-label flex justify-between items-center mb-2">
                             <label class="text-xs font-black uppercase tracking-wider text-cyan-200">Weight / Quantity</label>
                             <span class="text-sm font-black text-white bg-white/10 px-3 py-1 rounded-xl" id="hp-qty-badge">25 kg</span>
                         </div>
@@ -396,8 +397,8 @@
                 </div>
 
                 <!-- Result Box (5 cols) -->
-                <div class="lg:col-span-5 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 text-center flex flex-col justify-between shadow-xl">
-                    <div>
+                <div class="calculator-result lg:col-span-5 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 text-center flex flex-col justify-between shadow-xl">
+                    <div class="payout-value">
                         <span class="text-xs uppercase font-black tracking-widest text-cyan-200">Instant Doorstep Payout</span>
                         <div class="text-5xl sm:text-6xl font-black text-hal-accent my-3 tracking-tight" id="hp-payout">
                             ₹275
@@ -409,9 +410,8 @@
 
                     <div class="mt-6 pt-6 border-t border-white/10 space-y-3">
                         <button onclick="scheduleWithHpEstimate()" 
-                                class="w-full bg-gradient-to-r from-hal-500 to-cyan-500 hover:from-hal-600 hover:to-cyan-600 text-white font-black py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2 text-base">
+                                class="calculator-action w-full bg-gradient-to-r from-hal-500 to-cyan-500 hover:from-hal-600 hover:to-cyan-600 text-white font-black py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2 text-base">
                             <span>Book Pickup for ₹<span id="hp-btn-amt">275</span></span>
-                            <i class="fas fa-arrow-right text-sm"></i>
                         </button>
                         <a href="rate-card.html" class="block text-xs font-bold text-cyan-300 hover:text-white transition">
                             View All 38+ Material Rates with Multi-Cart →
@@ -937,6 +937,7 @@
         function updateHpCalc() {
             const total = hpPrice * hpQty;
             document.getElementById('hp-payout').textContent = '₹' + total.toLocaleString();
+            document.getElementById('hp-payout').classList.toggle('is-long-amount', document.getElementById('hp-payout').textContent.length > 9);
             document.getElementById('hp-btn-amt').textContent = total.toLocaleString();
             document.getElementById('hp-calc-breakdown').textContent = hpQty + ' ' + hpUnit + ' × ₹' + hpPrice.toLocaleString() + '/' + hpUnit;
             document.getElementById('hp-qty-badge').textContent = hpQty + ' ' + hpUnit;

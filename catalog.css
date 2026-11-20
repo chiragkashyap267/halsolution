@@ -1,0 +1,107 @@
+/* Product cards keep their controls outside the narrow image/title columns. */
+.page-rate-card .product-card {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    align-items: start;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 20px;
+}
+.page-rate-card .product-media { width: 88px; height: 88px; border-radius: 14px; }
+.page-rate-card .product-content { display: contents; }
+.page-rate-card .product-info { grid-column: 2; align-self: start; }
+.page-rate-card .product-info .item-name { font-size: 1rem; line-height: 1.45; overflow-wrap: break-word; }
+.page-rate-card .product-info > p { color: #64748b; font-size: .875rem; line-height: 1.6; }
+.page-rate-card .product-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: fit-content; max-width: 100%; padding: 4px 8px; margin-bottom: 6px;
+    min-height: 24px; font-size: .75rem; font-weight: 700; line-height: 1.35;
+    text-align: center; white-space: normal;
+}
+.page-rate-card .product-footer {
+    grid-column: 1 / -1;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 12px; margin: 0; padding-top: 14px;
+}
+.page-rate-card .product-rate { flex: 0 0 auto; }
+.page-rate-card .product-rate > span { font-size: .6875rem; line-height: 1.4; letter-spacing: .08em; white-space: nowrap; color: #64748b; }
+.page-rate-card .product-rate .item-price { display: flex; align-items: baseline; gap: 2px; font-size: 1.5rem; line-height: 1.4; white-space: nowrap; }
+.page-rate-card .product-rate .item-price > span { font-size: .875rem; color: #64748b; }
+.page-rate-card .product-actions { display: grid; grid-template-columns: minmax(0, 1fr) 44px; flex: 1 0 172px; gap: 8px; }
+.page-rate-card .product-actions > button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-width: 44px; min-height: 44px; height: 44px; padding: 8px 10px;
+    border-radius: 12px; font-size: .875rem; line-height: 1.2; white-space: nowrap;
+}
+.page-rate-card .product-actions > .product-add { width: 44px; padding: 0; font-size: 1rem; }
+.page-rate-card .product-calculate i { flex: 0 0 auto; font-size: .75rem; }
+.page-rate-card .product-card:hover { transform: none; }
+.page-rate-card .category-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.page-rate-card .category-title { flex: 1 1 220px; align-items: center; min-width: 0; }
+.page-rate-card .category-icon { flex: 0 0 44px; width: 44px; height: 44px; }
+.page-rate-card .category-copy h2 { font-size: clamp(1.25rem, 3vw, 1.5rem); line-height: 1.3; }
+.page-rate-card .category-copy p { color: #64748b; font-size: .875rem; line-height: 1.5; margin-top: 4px; }
+.page-rate-card .category-badge {
+    display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto;
+    min-height: 30px; max-width: 100%; padding: 5px 10px;
+    font-size: .75rem; line-height: 1.3; text-align: center; white-space: nowrap;
+}
+.calculator-action {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-width: 0; min-height: 48px; height: auto; padding: 12px 16px;
+    font-size: .9375rem; line-height: 1.45; text-align: center;
+}
+.calculator-action > i { flex: 0 0 auto; }
+.calculator-action:hover { transform: none; }
+.calculator-weight-label { flex-wrap: wrap; gap: 8px; }
+.calculator-weight-label > label { flex: 1 1 180px; }
+.calculator-weight-label > span { margin-left: 0; }
+.payout-value { min-width: 0; }
+.payout-value > [id] { font-variant-numeric: tabular-nums; }
+#calc-total-payout.is-long-amount, #hp-payout.is-long-amount { font-size: clamp(1.375rem, 5vw, 2.5rem); }
+.catalog-calculator .calculator-result { min-width: 0; }
+.catalog-calculator .calculator-actions { display: grid; gap: 12px; }
+.catalog-calculator .calculator-actions > * { margin: 0; }
+.page-rate-card .estimate-summary { gap: 12px; padding: 12px 16px; }
+.estimate-summary-label { min-width: 0; gap: 10px; }
+.estimate-summary-label > div:first-child { flex: 0 0 32px; }
+.estimate-summary-label h3 { font-size: .875rem; line-height: 1.35; }
+.estimate-summary-label p { font-size: .75rem; line-height: 1.4; }
+.estimate-summary-amount { flex: 0 0 auto; gap: 8px; }
+#cartTotal { font-size: 1.5rem; line-height: 1.3; white-space: nowrap; font-variant-numeric: tabular-nums; }
+#cartTotal.is-long-amount { font-size: 1rem; }
+.estimate-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 12px; align-items: center; padding-block: 12px; }
+.estimate-row-info { grid-column: 1 / -1; }
+.estimate-row-info > p:first-child { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.5; }
+.estimate-controls { width: fit-content; }
+.estimate-controls > button { width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0; flex: 0 0 44px; }
+.estimate-controls > span { min-width: 3ch; width: auto; white-space: nowrap; }
+.estimate-row .estimate-row-total { width: auto; min-width: 0; white-space: nowrap; font-size: .875rem; }
+@media (min-width: 640px) {
+    .page-rate-card .product-card { grid-template-columns: 96px minmax(0,1fr); }
+    .page-rate-card .product-media { width: 96px; height: 96px; }
+    .page-rate-card .product-info .item-name { font-size: 1.125rem; }
+}
+@media (max-width: 767px) {
+    .page-rate-card .category-heading { flex-direction: column; align-items: flex-start; }
+    .page-rate-card .category-title { flex: none; width: 100%; }
+    .page-rate-card .category-badge { margin-left: 56px; }
+    .page-rate-card .catalog-calculator { padding: 20px 16px; border-radius: 24px; margin-bottom: 32px; }
+    .catalog-calculator .calculator-heading { margin-bottom: 20px; padding-bottom: 20px; }
+    .catalog-calculator .calculator-heading h2 { font-size: 1.75rem; line-height: 1.25; }
+    .catalog-calculator .calculator-layout { gap: 20px; }
+    .page-rate-card .catalog-calculator .calculator-result { padding: 20px 16px; border-radius: 20px; }
+    .catalog-calculator .calculator-actions { padding-top: 20px; margin-top: 20px; }
+    .catalog-calculator .calculator-action { padding: 12px 10px; font-size: .875rem; white-space: nowrap; }
+    .catalog-calculator #calc-total-payout { font-size: 2.75rem; line-height: 1.2; }
+    .catalog-calculator #calc-total-payout.is-long-amount { font-size: 1.5rem; }
+    .calculator-presets > button { flex: 0 0 auto; min-width: 44px; }
+    .page-rate-card .estimate-summary { padding: 12px; gap: 8px; }
+}
+@media (max-width: 359px) {
+    .page-rate-card .product-card { grid-template-columns: 72px minmax(0,1fr); gap: 12px; padding: 14px; }
+    .page-rate-card .product-media { width: 72px; height: 72px; }
+    .page-rate-card .product-actions { flex-basis: 100%; }
+    .estimate-summary-label > div:first-child { display: none; }
+}
