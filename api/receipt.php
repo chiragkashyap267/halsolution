@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require __DIR__ . '/common.php';
 require __DIR__ . '/pickup-functions.php';
+require __DIR__ . '/content-store.php';
 
 try {
     startAccountSession();
@@ -14,7 +15,7 @@ try {
     $q->execute([$reference, (int)$_SESSION['user_id']]);
     $order = $q->fetch();
     if (!$order) respond(['error' => 'Receipt not found.'], 404);
-    $contact = json_decode(file_get_contents(dirname(__DIR__) . '/business-config.json'), true, 16, JSON_THROW_ON_ERROR);
+    $contact = readSiteContent()['settings'];
     $logo = base64_encode(file_get_contents(dirname(__DIR__) . '/images/logo.png'));
     $escape = fn($value) => htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     header('Content-Type: text/html; charset=utf-8');

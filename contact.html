@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <script src="business.js?v=1" defer></script>
+    <script src="business.js?v=2" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Hal Solution</title>
@@ -56,6 +56,7 @@
     <script src="site.js?v=4" defer></script>
     <link rel="stylesheet" href="account.css?v=4">
     <script src="account.js?v=4" defer></script>
+    <link rel="stylesheet" href="mobile.css?v=6">
 </head>
 <body class="page-contact has-floating-actions antialiased text-slate-800 pt-20 bg-slate-50">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -133,7 +134,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div data-aos="fade-up">
-                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-6">
+                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-6" data-ui-badge>
                     <i class="fas fa-headset mr-2"></i>Customer Support
                 </span>
             </div>
@@ -149,13 +150,13 @@
 
     <!-- 2. Support Hours Card -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
-        <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 max-w-2xl mx-auto">
+        <div data-aos="fade-up" data-aos-delay="100" class="support-hours-card bg-white rounded-2xl shadow-lg border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 max-w-2xl mx-auto">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-hal-400 to-hal-600 flex items-center justify-center text-white text-2xl shadow-lg">
                 <i class="fas fa-clock"></i>
             </div>
             <div class="text-center md:text-left">
                 <h3 class="text-xl font-bold text-slate-900">Support Hours</h3>
-                <p class="text-slate-500 font-medium">8:30 AM – 7:30 PM, all days</p>
+                <p class="text-slate-500 font-medium" data-setting="supportHours">8:30 AM – 7:30 PM, all days</p>
                 <p class="text-sm text-hal-600 font-semibold mt-1">Call or WhatsApp our team</p>
             </div>
         </div>
@@ -180,7 +181,7 @@
 
             <!-- WhatsApp Card (RECOMMENDED) -->
             <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl shadow-md border-2 border-[#25D366] p-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
-                <span class="absolute top-4 right-4 bg-[#25D366] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Recommended</span>
+                <span class="absolute top-4 right-4 bg-[#25D366] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide" data-ui-badge>Recommended</span>
                 <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-[#25D366] text-2xl mb-5 group-hover:scale-110 transition-transform">
                     <i class="fab fa-whatsapp"></i>
                 </div>
@@ -210,8 +211,7 @@
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 mb-1">Office Address</h3>
                 <p class="text-sm text-slate-400 mb-3">Corporate Office</p>
-                <p class="text-slate-600 font-medium leading-relaxed">
-                    Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
+                <p class="text-slate-600 font-medium leading-relaxed" data-setting="address">Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
                 </p>
             </div>
 
@@ -222,8 +222,7 @@
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 mb-1">Correspondence Address</h3>
                 <p class="text-sm text-slate-400 mb-3">Mailing & Communications</p>
-                <p class="text-slate-600 font-medium leading-relaxed">
-                    Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
+                <p class="text-slate-600 font-medium leading-relaxed" data-setting="address">Plot No. K-58, Site V, UPSIDC Kasna Ind. Area, Greater Noida, Uttar Pradesh – 201308
                 </p>
             </div>
 
@@ -326,7 +325,7 @@
     <section class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center mb-10">
-                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+                <span class="inline-block bg-hal-100 text-hal-700 text-sm font-bold px-4 py-1.5 rounded-full mb-4" data-ui-badge>
                     <i class="fas fa-map-marked-alt mr-2"></i>Find Us
                 </span>
                 <h2 class="text-3xl md:text-4xl font-black text-slate-900">Our Location</h2>
@@ -336,8 +335,8 @@
                 <div class="w-16 h-16 shrink-0 rounded-2xl bg-hal-50 text-hal-600 flex items-center justify-center text-3xl"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                 <div class="space-y-4">
                     <h3 class="text-xl font-bold text-slate-900">Visit HAL Solution</h3>
-                    <p class="text-slate-600 leading-relaxed">K-58, Site V, UPSIDC, Greater Noida, Uttar Pradesh 201308.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Plot+K-58+Site+V+UPSIDC+Kasna+Industrial+Area+Greater+Noida+201308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-11 bg-hal-600 text-white font-bold px-5 py-3 rounded-xl hover:bg-hal-700 transition">View on Google Maps</a>
+                    <p class="text-slate-600 leading-relaxed" data-setting="address">K-58, Site V, UPSIDC, Greater Noida, Uttar Pradesh 201308.</p>
+                    <a data-business-map href="https://www.google.com/maps/search/?api=1&amp;query=Plot+K-58+Site+V+UPSIDC+Kasna+Industrial+Area+Greater+Noida+201308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-11 bg-hal-600 text-white font-bold px-5 py-3 rounded-xl hover:bg-hal-700 transition">View on Google Maps</a>
                 </div>
             </div>
         </div>
@@ -353,7 +352,7 @@
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solution Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm font-medium" data-setting="footerNote">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 

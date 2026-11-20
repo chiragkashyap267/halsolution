@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <script src="business.js?v=1" defer></script>
+    <script src="business.js?v=2" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Scrap Rates & Interactive Calculator - Hal Solution</title>
@@ -47,6 +47,8 @@
     <link rel="stylesheet" href="account.css?v=4">
     <script src="account.js?v=4" defer></script>
     <link rel="stylesheet" href="catalog.css?v=5">
+    <link rel="stylesheet" href="mobile.css?v=6">
+    <script src="content.js?v=1" defer></script>
 </head>
 <body class="page-rate-card text-slate-800 pt-20 font-sans antialiased selection:bg-hal-500 selection:text-white">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -115,11 +117,11 @@
         <!-- Top Header & Search Bar -->
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-6">
             <div>
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hal-100 text-hal-800 text-xs font-black mb-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hal-100 text-hal-800 text-xs font-black mb-3" data-ui-badge>
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Market Index • Updated Daily
                 </div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">Live Scrap Rates</h1>
-                <p class="text-slate-500 font-medium text-lg mt-2">Certified digital scale rates for 38+ recyclable materials in your area.</p>
+                <p class="text-slate-500 font-medium text-lg mt-2">Certified digital scale rates for <span data-catalog-count>38</span> recyclable materials in your area.</p>
             </div>
 
             <!-- Live Search -->
@@ -140,7 +142,7 @@
             <div class="relative z-10">
                 <div class="calculator-heading flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/20 pb-6">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold mb-2">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold mb-2" data-ui-badge>
                             <i class="fas fa-calculator text-hal-accent"></i> Instant Payout Estimator
                         </div>
                         <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Calculate Your Scrap Payout</h2>
@@ -234,56 +236,56 @@
                 <div class="sticky top-28 bg-white rounded-3xl p-6 shadow-sm border border-slate-100">
                     <div class="flex items-center justify-between mb-5">
                         <h3 class="font-black text-xl text-slate-900">Categories</h3>
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">38 items</span>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest"><span data-catalog-count>38</span> items</span>
                     </div>
                     <ul class="space-y-1.5">
                         
         <li>
             <a href="#paper" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-newspaper text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Paper & Cardboard</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">6</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>6</span>
             </a>
         </li>
     
         <li>
             <a href="#clothes" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-tshirt text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Clothes & Textiles</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">1</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>1</span>
             </a>
         </li>
     
         <li>
             <a href="#metals" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-cubes-stacked text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Metals</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">7</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>7</span>
             </a>
         </li>
     
         <li>
             <a href="#appliances" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-fan text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Large Appliances</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">9</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>9</span>
             </a>
         </li>
     
         <li>
             <a href="#ewaste" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-laptop-code text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> E-Waste & IT Equipment</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">9</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>9</span>
             </a>
         </li>
     
         <li>
             <a href="#plastics" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-wine-bottle text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Plastics</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">3</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>3</span>
             </a>
         </li>
     
         <li>
             <a href="#vehicles" class="group flex items-center justify-between p-3 rounded-2xl hover:bg-hal-50 hover:text-hal-700 transition font-bold text-slate-600">
                 <span class="flex items-center gap-3"><i class="fas fa-motorcycle text-hal-500 w-5 text-center group-hover:scale-110 transition"></i> Vehicles Scrap</span>
-                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black">3</span>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full group-hover:bg-hal-200 group-hover:text-hal-800 transition font-black" data-ui-badge>3</span>
             </a>
         </li>
     
@@ -321,7 +323,7 @@
                         <p class="text-xs text-slate-400 font-medium">6 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -331,7 +333,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Popular 🚀</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Popular 🚀</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Newspaper (Raddi)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Daily print newspapers & supplements</p>
                     </div>
@@ -393,7 +395,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Eco Pick 📦</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Eco Pick 📦</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Cardboard (Corrugated)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Clean brown shipping & packing boxes</p>
                     </div>
@@ -525,7 +527,7 @@
                         <p class="text-xs text-slate-400 font-medium">1 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -535,7 +537,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Circularity 👕</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Circularity 👕</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Used / Old Clothes</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Wearable & repurposable cotton/fabric</p>
                     </div>
@@ -574,7 +576,7 @@
                         <p class="text-xs text-slate-400 font-medium">7 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -584,7 +586,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Popular 🚀</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Popular 🚀</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Iron (Loha)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Grills, pipes, rods, heavy iron scrap</p>
                     </div>
@@ -646,7 +648,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">High Demand ✨</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>High Demand ✨</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Aluminium Scrap</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Window frames, beverage cans, utensils</p>
                     </div>
@@ -677,7 +679,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Premium 💎</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Premium 💎</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Copper Scrap (Taamba)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Wiring copper, motor coil, pure red copper</p>
                     </div>
@@ -708,7 +710,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Premium 💎</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Premium 💎</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Brass Scrap (Peetal)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Pooja utensils, plumbing fittings, locks</p>
                     </div>
@@ -809,7 +811,7 @@
                         <p class="text-xs text-slate-400 font-medium">9 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -819,7 +821,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Top Value 💰</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Top Value 💰</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Window / Split AC (2 Ton)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Indoor + outdoor unit with copper coil</p>
                     </div>
@@ -850,7 +852,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Popular 🚀</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Popular 🚀</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Window / Split AC (1.5 Ton)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Complete 1.5T AC unit (working or dead)</p>
                     </div>
@@ -1106,7 +1108,7 @@
                         <p class="text-xs text-slate-400 font-medium">9 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -1116,7 +1118,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Popular 🚀</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Popular 🚀</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Desktop Computer CPU</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Cabinet with motherboard, SMPS, RAM, HDD</p>
                     </div>
@@ -1147,7 +1149,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Popular 🚀</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Popular 🚀</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Laptop (Dead / Scrap)</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Any generation laptop with motherboards intact</p>
                     </div>
@@ -1333,7 +1335,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Heavy Weight ⚡</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Heavy Weight ⚡</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Lead-Acid Inverter Battery</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">100Ah - 220Ah tubular or flat plate battery</p>
                     </div>
@@ -1403,7 +1405,7 @@
                         <p class="text-xs text-slate-400 font-medium">3 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -1413,7 +1415,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">100% Recyclable ♻️</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>100% Recyclable ♻️</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">PET Water & Cold Drink Bottles</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Transparent beverage & water plastic bottles</p>
                     </div>
@@ -1514,7 +1516,7 @@
                         <p class="text-xs text-slate-400 font-medium">3 items actively accepted</p>
                     </div>
                 </div>
-                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100">100% Certified Scale</span>
+                <span class="category-badge text-xs font-bold text-hal-600 bg-hal-50 px-3 py-1.5 rounded-full border border-hal-100" data-ui-badge>100% Certified Scale</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 
@@ -1524,7 +1526,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">RTO Assistance 🏍️</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>RTO Assistance 🏍️</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Motorcycle / Bike Scrap</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">End-of-life two-wheeler with official de-registration guidance</p>
                     </div>
@@ -1555,7 +1557,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">RTO Assistance 🛵</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>RTO Assistance 🛵</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Scooty / Scooter Scrap</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Geared or gearless scooter scrap</p>
                     </div>
@@ -1586,7 +1588,7 @@
                 </div>
                 <div class="product-content flex-1 flex flex-col justify-between py-1">
                     <div class="product-info">
-                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1">Certified Scrappage 🚗</span>
+                        <span class="product-badge text-[11px] font-black px-2 py-0.5 rounded-full bg-hal-50 text-hal-700 border border-hal-200 inline-block mb-1" data-ui-badge>Certified Scrappage 🚗</span>
                         <h4 class="font-black text-lg text-slate-900 leading-snug item-name">Four Wheeler / Car Scrap</h4>
                         <p class="text-slate-400 font-medium text-xs mt-1 line-clamp-2">Dismantled responsibly with official government certificate</p>
                     </div>
@@ -1656,7 +1658,7 @@
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-twitter text-xl"></i></a>
                 <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-hal-500 hover:text-white transition hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm font-medium">© 2026 Hal Solution Private Limited. All rights reserved.</p>
+            <p class="text-slate-500 text-sm font-medium" data-setting="footerNote">© 2026 Hal Solution Private Limited. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1753,7 +1755,7 @@
                 const name = item.getAttribute('data-name') || '';
                 const text = item.textContent.toLowerCase();
                 if (input === '' || name.includes(input) || text.includes(input)) {
-                    item.style.display = 'flex';
+                    item.style.display = '';
                     matchedTotal++;
                 } else {
                     item.style.display = 'none';
@@ -1840,10 +1842,10 @@
                 const row = document.createElement('div');
                 row.className = 'estimate-row';
                 
-                const safeName = name.replace(/'/g, "\\'");
+                const safeName = name.replace(/[&<>\"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[char]));
                 row.innerHTML = `
                     <div class="estimate-row-info flex-1 min-w-0 pr-2">
-                        <p class="font-bold text-slate-800 text-xs truncate">${name}</p>
+                        <p class="font-bold text-slate-800 text-xs truncate">${safeName}</p>
                         <p class="text-[10px] text-slate-400">₹${data.price.toLocaleString()} / ${data.unit}</p>
                     </div>
                     <div class="estimate-controls flex items-center gap-1.5 bg-slate-100 rounded-lg p-1">

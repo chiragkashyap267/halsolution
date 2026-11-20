@@ -11,3 +11,6 @@ node_modules/
 Thumbs.db
 /api/config.local.php
 /.local-tests/
+
+/images/uploads/*
+!/images/uploads/.htaccess

@@ -16,4 +16,8 @@ Configure MSG91 SMS OTP before enabling live sign-in; see [PICKUP_SETUP.md](PICK
 
 Change the business phone in one place: `business-config.json`. Public call/WhatsApp links, order sharing and receipts use this value. The supplied brand image is `images/logo.png`. Business content is sourced from the existing website; see [BUSINESS_DETAILS.md](BUSINESS_DETAILS.md).
 
-Email ownership verification, password-reset delivery, callback delivery, and protected admin access still require integration. Admin/enterprise content is sample data. The contact-page location flow still includes a placeholder address; the new booking flow does not fabricate an address.
+Email ownership verification, password-reset delivery and callback delivery still require integration. Enterprise content is sample data. The contact-page location flow still includes a placeholder address; the new booking flow does not fabricate an address.
+
+## Website manager
+
+Open `/admin` for the protected price/product/contact/banner editor. It uses private server-side file storage and does not require the customer MySQL database. See [ADMIN_SETUP.md](ADMIN_SETUP.md).
